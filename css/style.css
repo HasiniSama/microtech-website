@@ -89,18 +89,6 @@
       -moz-transition: height 0.3s, background-color 0.3s;
       transition: height 0.3s, background-color 0.3s;
   }
-
-  /* [ Fixed menu ] */
-
-  .fix-menu .wrap-menu {
-      height: 70px;
-      background-color: rgba(255,255,255,1);
-      box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
-      -moz-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
-      -webkit-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
-      -o-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
-      -ms-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
-  }
   
   .limiter-menu {
       height: 100%;
@@ -161,6 +149,31 @@
   .main-menu > li.active-menu > a {
       color: #6c7ae0;
   }
+
+    /* [ Fixed menu ] */
+
+    .fix-menu .wrap-menu {
+      height: 70px;
+      background-color: rgba(255,255,255,1);
+      box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+      -moz-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+      -webkit-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+      -o-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+      -ms-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+    }
+    
+    .header-v2 .fix-menu .container-menu {
+      height: 70px;
+    }
+    
+    .header-v3 .fix-menu .wrap-menu {
+      background-color: #222;
+      border-color: #222;
+    }
+    
+    .header-v4 .fix-menu .container-menu {
+      height: 110px;
+    }
     
   /*[ Logo ]*/
   .logo {

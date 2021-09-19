@@ -2,7 +2,7 @@
     "use strict";
 
     /* [ Fixed Header ] */
-    var headerDesktop = $('.container-menu');
+    var header = $('.container-menu');
     var wrapMenu = $('.wrap-menu');
 
     if($('.top-bar').length > 0) {
@@ -14,21 +14,21 @@
     
 
     if($(window).scrollTop() > posWrapHeader) {
-        $(headerDesktop).addClass('fix-menu');
+        $(header).addClass('fix-menu');
         $(wrapMenu).css('top',0); 
     }  
     else {
-        $(headerDesktop).removeClass('fix-menu');
+        $(header).removeClass('fix-menu');
         $(wrapMenu).css('top',posWrapHeader - $(this).scrollTop()); 
     }
 
     $(window).on('scroll',function(){
         if($(this).scrollTop() > posWrapHeader) {
-            $(headerDesktop).addClass('fix-menu');
+            $(header).addClass('fix-menu');
             $(wrapMenu).css('top',0); 
         }  
         else {
-            $(headerDesktop).removeClass('fix-menu');
+            $(header).removeClass('fix-menu');
             $(wrapMenu).css('top',posWrapHeader - $(this).scrollTop()); 
         } 
     });
