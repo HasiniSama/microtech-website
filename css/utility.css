@@ -3,6 +3,18 @@
 .h-full {height: 100%;}
 .s-full {width: 100%; height: 100%;}
 
+
+/* [ Display ]*/
+.dis-none {display: none;}
+.dis-block {display: block;}
+.dis-inline {display: inline;}
+.dis-inline-block {display: inline-block;}
+
+/* [ Position ] */
+.pos-relative {position: relative;}
+.pos-absolute {position: absolute;}
+.pos-fixed {position: fixed;}
+
 /* [ Flex Display ] */
 .flex-w,
 .flex-sb-m,
@@ -11,7 +23,9 @@
 .flex-col-l,
 .flex-col-l-sb,
 .flex-l-m,
-.flex-c-m{
+.flex-c-m,
+.flex-t,
+.flex-r{
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -78,6 +92,15 @@
 	align-items: center;
 }
 
+.flex-t {
+	-ms-align-items: flex-start;
+	align-items: flex-start;
+}
+
+.flex-r {
+	justify-content: flex-end;
+}
+
 /* [ Transition ] */
 
 .trans-03 {
@@ -102,6 +125,12 @@
 }
 
 /* [ Padding ] */
+
+.p-lr-15{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .p-lr-25{
     padding-left: 25px;
     padding-right: 25px;
@@ -123,13 +152,17 @@
 
 .p-t-80{padding-top: 80px;}
 .p-t-23{padding-top: 23px;}
+.p-t-14{padding-top: 14px;}
+.p-t-3{padding-top: 3px;}
 
+.p-b-6 {padding-bottom: 6px;}
 .p-b-8 {padding-bottom: 8px;}
 .p-b-30{padding-bottom: 30px;}
 .p-b-50 {padding-bottom: 50px;}
 .p-b-52 {padding-bottom: 52px;}
 .p-b-4{padding-bottom: 4px;}
 .p-b-140{padding-bottom: 140px;}
+.p-b-35{padding-bottom: 35px;}
 
 /* [ Absolute ] */
 .ab-t-l {

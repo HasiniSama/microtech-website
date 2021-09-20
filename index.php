@@ -246,6 +246,133 @@
 					</button>
 				</div>
 			</div>
+
+			<div class="row isotope-grid">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+					<!-- Block -->
+					<div class="block2">
+						<div class="block2-pic hov-img1">
+							<img src="images/products/4.jpg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								View
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+									OnePlus Nord CE 5G
+								</a>
+
+								<span class="stext-105 cl3">
+									LKR 89,990.00
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+					<!-- Block -->
+					<div class="block2">
+						<div class="block2-pic hov-img1">
+							<img src="images/products/1.jpg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								View
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+									iPhone 12 Pro
+								</a>
+
+								<span class="stext-105 cl3">
+									LKR 291,900.00
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+					<!-- Block -->
+					<div class="block2">
+						<div class="block2-pic hov-img1">
+							<img src="images/products/10.jpeg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								View
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+									Apple MacBook Air M1
+								</a>
+
+								<span class="stext-105 cl3">
+									LKR 249,900.00
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+					<!-- Block -->
+					<div class="block2">
+						<div class="block2-pic hov-img1">
+							<img src="images/products/11.jpg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								View
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+									MacBook Pro M1
+								</a>
+
+								<span class="stext-105 cl3">
+									LKR 377,000.00
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</section>
 

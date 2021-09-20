@@ -241,13 +241,80 @@
     -o-transform: translateY(0%);
     transform: translateY(0%);
   }
+
+ /* [ Block2 ] */
+  .block2-pic {
+    position: relative;
+  }
+
+  .block2-btn {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-decoration: none;
+  }
+
+  .block2-pic:hover .block2-btn {
+    bottom: 20px;
+  }
+
+  .hov-img1 {
+    display: block;
+    overflow: hidden;
+  }
+  
+  .hov-img1 img{
+    width: 100%;
+    -webkit-transition: transform 0.9s ease;
+    -o-transition: transform 0.9s ease;
+    -moz-transition: transform 0.9s ease;
+    transition: transform 0.9s ease;
+  }
+
+  .block2-txt-child1 {
+    width: calc(100% - 30px);
+  }
+  
+  .block2-txt-child2 {
+    width: 30px;
+  }
+  .block2-txt a{
+    text-decoration: none;
+  }
   
     /*[ Hover ]*/
   .hov1:hover {
     color: #333;
     border-color: #797979;
   }
+
+  .hov-btn1:hover {
+    border-color: #222;
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .hov-btn1:hover i {
+    color: #fff;
+  }
+  
     /*[ Border ]*/
+
+  .bor0 {border-radius: 50%;}
+
+  .bor1 {
+    border-radius: 23px;
+  }
+  
+  .bor2 {
+    border-radius: 20px;
+  }
+
   .bor3 {
     border-bottom: 1px solid transparent;
   }
@@ -304,6 +371,7 @@
   .cl0 {color: #fff;}
   .cl1 {color: #717fe0;}
   .cl2 {color: #333;}
+  .cl4 {color: #999;}
   .cl6 {color: #888;}
   
   /* [ Background Colors ] */
@@ -314,6 +382,18 @@
   /* [ Hover ] */
   .hov-cl0:hover {color: #fff;}
   .hov-cl1:hover {color: #717fe0;}
+
+  .btn-addwish-b2 .icon-heart2 {
+    opacity: 0;
+  }
+  
+  .btn-addwish-b2:hover .icon-heart2 {
+    opacity: 1;
+  }
+  
+  .btn-addwish-b2:hover .icon-heart1 {
+    opacity: 0;
+  }
 
   /* [ Responsive ] */
   .respon3 {
@@ -346,7 +426,30 @@
   font-family: Poppins-Regular;
   font-size: 15px;
   line-height: 1.2;
-}
+  }
+
+  .stext-103 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    line-height: 1.466667;
+  }
+
+  .stext-104 {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.466667;
+  }
   
+  .stext-105 {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.466667;
+    letter-spacing: 1px;
+  }
 
-
+  /* [ Size ]*/
+  
+  .size-102 {
+    min-width: 139px;
+    height: 40px;
+  }
