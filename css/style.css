@@ -242,6 +242,33 @@
     transform: translateY(0%);
   }
   
+    /*[ Hover ]*/
+  .hov1:hover {
+    color: #333;
+    border-color: #797979;
+  }
+    /*[ Border ]*/
+  .bor3 {
+    border-bottom: 1px solid transparent;
+  }
+
+   /*[ Button ]*/
+  button {
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  button:focus {outline: none;}
+  
+  iframe {border: none;}
+
+
+  .how-active1 {
+    color: #333;
+    border-color: #797979;
+  }
 
   /*[ Logo ]*/
   .logo {
@@ -277,6 +304,7 @@
   .cl0 {color: #fff;}
   .cl1 {color: #717fe0;}
   .cl2 {color: #333;}
+  .cl6 {color: #888;}
   
   /* [ Background Colors ] */
   .bg0 {background-color: #fff;}
@@ -300,10 +328,25 @@
     line-height: 1.1;
   }
 
+  .ltext-103 {
+    font-family: Poppins-Bold;
+    font-size: 36px;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
   .stext-102 {
     font-family: Poppins-Regular;
+    color: white;
     font-size: 14px;
     line-height: 1.7;
   }
+
+  .stext-106 {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  line-height: 1.2;
+}
   
+
 
