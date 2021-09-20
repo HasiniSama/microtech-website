@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/utility.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 	
@@ -22,19 +23,19 @@
 					</div>
                     
 					<div class="right-top-bar flex-w h-full">
-                        <a href="#" class="flex-c-m trans-01 p-lr-25">
+                        <a href="#" class="flex-c-m trans-04 p-lr-25">
                             <?php echo "My Account"?>							
 						</a>
 
-						<a href="#" class="flex-c-m trans-01 p-lr-25">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
                             <?php echo "Help & FAQs"?>
 						</a>
                         
-						<a href="#" class="flex-c-m trans-01 p-lr-25">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
                             <?php echo "EN"?>			
 						</a>
 
-						<a href="#" class="flex-c-m trans-01 p-lr-25">
+						<a href="#" class="flex-c-m trans-04 p-lr-25">
                             <?php echo "LKR"?>	                 
 						</a>
 					</div>
@@ -81,7 +82,7 @@
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-01 p-l-22 p-r-11 js-show-modal-search">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i class="zmdi zmdi-search"></i>
                             
 						</div>
@@ -123,6 +124,86 @@
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
+		</div>
+	</section>
+
+	<!-- Banner -->
+	<section class="banner bg0 p-t-80 p-b-50">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<!-- Block 01 -->
+					<div class="block1 hov-img0">
+						<img src="images/banner-01.jpg" alt="IMG-BANNER">
+
+						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+							<div class="block1-txt-child1 flex-col-l">
+								<span class="block1-name ltext-102 trans-04 p-b-8">
+									Smartphones
+								</span>
+
+								<span class="block1-info stext-102 trans-04">
+									Android | IOS
+								</span>
+							</div>
+
+							<div class="block1-txt-child2 p-b-4 trans-05">
+								<div class="block1-link stext-101 cl0 trans-09">
+									Shop Now
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<!-- Block 01 -->
+					<div class="block1 hov-img0">
+						<img src="images/banner-02.jpeg" alt="IMG-BANNER">
+
+						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+							<div class="block1-txt-child1 flex-col-l">
+								<span class="block1-name ltext-102 trans-04 p-b-8">
+									Laptops
+								</span>
+
+								<span class="block1-info stext-102 trans-04">
+									Gaming | Work
+								</span>
+							</div>
+
+							<div class="block1-txt-child2 p-b-4 trans-05">
+								<div class="block1-link stext-101 cl0 trans-09">
+									Shop Now
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<!-- Block 01 -->
+					<div class="block1 hov-img0">
+						<img src="images/banner-03.jpg" alt="IMG-BANNER">
+
+						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+							<div class="block1-txt-child1 flex-col-l">
+								<span class="block1-name ltext-102 trans-04 p-b-8">
+									Accessories
+								</span>
+
+								<span class="block1-info stext-102 trans-04">
+									Customize | All
+								</span>
+							</div>
+
+							<div class="block1-txt-child2 p-b-4 trans-05">
+								<div class="block1-link stext-101 cl0 trans-09">
+									Shop Now
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
