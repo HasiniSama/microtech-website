@@ -8,13 +8,14 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/utility.css">
     <link rel="stylesheet" type="text/css" href="css/shopping_cart.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/footer.css"
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+          rel="stylesheet">
 
 
 </head>
@@ -27,24 +28,24 @@
         <div class="top-bar">
             <div class="content-topbar flex-sb-m h-full container">
                 <div class="left-top-bar">
-                    <?php echo "Island Wide Delivary"?>
+                    <?php echo "Island Wide Delivary" ?>
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        <?php echo "My Account"?>
+                        <?php echo "My Account" ?>
                     </a>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        <?php echo "Help & FAQs"?>
+                        <?php echo "Help & FAQs" ?>
                     </a>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        <?php echo "EN"?>
+                        <?php echo "EN" ?>
                     </a>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        <?php echo "LKR"?>
+                        <?php echo "LKR" ?>
                     </a>
                 </div>
             </div>
@@ -62,7 +63,7 @@
                 <!-- Menu -->
                 <div class="menu">
                     <ul class="main-menu">
-                        <li class="active-menu">
+                        <li >
                             <a href="index.php">Home</a>
                         </li>
 
@@ -70,8 +71,8 @@
                             <a href="product.php">Shop</a>
                         </li>
 
-                        <li class="label1" data-label1="hot">
-                            <a href="shoping-cart.php">Features</a>
+                        <li class="label1 active-menu" data-label1="hot">
+                            <a href="shopping_cart.php">Features</a>
                         </li>
 
                         <li>
@@ -94,11 +95,13 @@
                         <i class="zmdi zmdi-search"></i>
 
                     </div>
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                         data-notify="2">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 
-                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                       data-notify="0">
                         <i class="zmdi zmdi-favorite-outline"></i>
                     </a>
                 </div>
@@ -177,7 +180,7 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li >Subtotal <span>$ 999.00</span></li>
+                        <li>Subtotal <span>$ 999.00</span></li>
                         <li>Total <span>$ 999.00</span></li>
                     </ul>
                     <a href="#" class="primary-btn"><span>Proceed to checkout</span></a>
@@ -189,7 +192,6 @@
 <!-- Shopping Cart Section End -->
 
 
-
 <!-- Footer Section Begin -->
 <footer class="footer">
     <div class="container">
@@ -199,7 +201,8 @@
                     <div class="footer_logo">
                         <a href="#"><img src="images/logo2.png" alt=""></a>
                     </div>
-                    <p>Passion shouldn't cost a fortune. <br> On MiCROTECH, shop online for better deals on Electronic products.</p>
+                    <p>Passion shouldn't cost a fortune. <br> On MiCROTECH, shop online for better deals on Electronic
+                        products.</p>
                     <a href="#"><img src="images/shopping-cart/payment_icons.png" alt=""></a>
                 </div>
             </div>

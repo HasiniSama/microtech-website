@@ -6,253 +6,268 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/utility.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-	
+    <link rel="stylesheet" type="text/css" href="css/utility.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
 </head>
 <body>
-    <!-- Header -->
-	<header>
-		<div class="container-menu">
-			<!-- Topbar -->
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						<?php echo "Island Wide Delivary"?>
-					</div>
-                    
-					<div class="right-top-bar flex-w h-full">
-                        <a href="#" class="flex-c-m trans-04 p-lr-25">
-                            <?php echo "My Account"?>							
-						</a>
+<!-- Header -->
+<header>
+    <div class="container-menu">
+        <!-- Topbar -->
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="left-top-bar">
+                    <?php echo "Island Wide Delivary" ?>
+                </div>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-                            <?php echo "Help & FAQs"?>
-						</a>
-                        
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-                            <?php echo "EN"?>			
-						</a>
+                <div class="right-top-bar flex-w h-full">
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "My Account" ?>
+                    </a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-                            <?php echo "LKR"?>	                 
-						</a>
-					</div>
-				</div>
-			</div>
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "Help & FAQs" ?>
+                    </a>
 
-            <!-- Menu bar -->
-			<div class="wrap-menu">
-				<nav class="limiter-menu container">
-					
-					<!-- Logo -->		
-					<a href="#" class="logo">
-						<img src="images/logo.png" alt="IMG-LOGO">
-					</a>
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "EN" ?>
+                    </a>
 
-					<!-- Menu -->
-					<div class="menu">
-						<ul class="main-menu">
-							<li class="active-menu">
-								<a href="index.php">Home</a>
-							</li>
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "LKR" ?>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-							<li>
-								<a href="product.php">Shop</a>
-							</li>
+        <!-- Menu bar -->
+        <div class="wrap-menu">
+            <nav class="limiter-menu container">
 
-							<li class="label1" data-label1="hot">
-								<a href="shoping-cart.php">Features</a>
-							</li>
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="IMG-LOGO">
+                </a>
 
-							<li>
-								<a href="blog.php">Blog</a>
-							</li>
+                <!-- Menu -->
+                <div class="menu">
+                    <ul class="main-menu">
+                        <li class="active-menu">
+                            <a href="index.php">Home</a>
+                        </li>
 
-							<li>
-								<a href="about.php">About</a>
-							</li>
+                        <li>
+                            <a href="product.php">Shop</a>
+                        </li>
 
-							<li>
-								<a href="contact.php">Contact</a>
-							</li>
-						</ul>
-					</div>	
+                        <li class="label1" data-label1="hot">
+                            <a href="shoping-cart.php">Features</a>
+                        </li>
 
-					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-                            
-						</div>
-                        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
+                        <li>
+                            <a href="blog.php">Blog</a>
+                        </li>
 
-						<a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-							<i class="zmdi zmdi-favorite-outline"></i>
-						</a>    		
-					</div>
-				</nav>
-			</div>	
-		</div>
-	</header>
+                        <li>
+                            <a href="about.php">About</a>
+                        </li>
 
-	<section class = "carousel">
-		<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<img src="images/slide-03.jpg" class="d-block w-100" alt="...">
-				</div>
-				<div class="carousel-item">
-					<img src="images/slide-02.jpg" class="d-block w-100" alt="...">
-				</div>
-				<div class="carousel-item">
-					<img src="images/slide-04.jpg" class="d-block w-100" alt="...">
-				</div>
-				<div class="carousel-item">
-					<img src="images/slide-01.jpg" class="d-block w-100" alt="...">
-				</div>
-			
-			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-		</div>
-	</section>
+                        <li>
+                            <a href="contact.php">Contact</a>
+                        </li>
+                    </ul>
+                </div>
 
-	<!-- Banner -->
-	<section class="banner bg0 p-t-80 p-b-50">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block 01 -->
-					<div class="block1 hov-img0">
-						<img src="images/banner-01.jpg" alt="IMG-BANNER">
+                <!-- Icon header -->
+                <div class="wrap-icon-header flex-w flex-r-m">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                        <i class="zmdi zmdi-search"></i>
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
+                    </div>
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                         data-notify="2">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+
+                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                       data-notify="0">
+                        <i class="zmdi zmdi-favorite-outline"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section class="carousel">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/slide-03.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide-02.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide-04.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="images/slide-01.jpg" class="d-block w-100" alt="...">
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!-- Banner -->
+<section class="banner bg0 p-t-80 p-b-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                <!-- Block 01 -->
+                <div class="block1 hov-img0">
+                    <img src="images/banner-01.jpg" alt="IMG-BANNER">
+
+                    <a href="product.php"
+                       class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Smartphones
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
+                            <span class="block1-info stext-102 trans-04">
 									Android | IOS
 								</span>
-							</div>
+                        </div>
 
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block 01 -->
-					<div class="block1 hov-img0">
-						<img src="images/banner-02.jpeg" alt="IMG-BANNER">
+                        <div class="block1-txt-child2 p-b-4 trans-05">
+                            <div class="block1-link stext-101 cl0 trans-09">
+                                Shop Now
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                <!-- Block 01 -->
+                <div class="block1 hov-img0">
+                    <img src="images/banner-02.jpeg" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
+                    <a href="product.php"
+                       class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Laptops
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
+                            <span class="block1-info stext-102 trans-04">
 									Gaming | Work
 								</span>
-							</div>
+                        </div>
 
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-					<!-- Block 01 -->
-					<div class="block1 hov-img0">
-						<img src="images/banner-03.jpg" alt="IMG-BANNER">
+                        <div class="block1-txt-child2 p-b-4 trans-05">
+                            <div class="block1-link stext-101 cl0 trans-09">
+                                Shop Now
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                <!-- Block 01 -->
+                <div class="block1 hov-img0">
+                    <img src="images/banner-03.jpg" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
+                    <a href="product.php"
+                       class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                        <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Accessories
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
+                            <span class="block1-info stext-102 trans-04">
 									Customize | All
 								</span>
-							</div>
+                        </div>
 
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Shop Now
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                        <div class="block1-txt-child2 p-b-4 trans-05">
+                            <div class="block1-link stext-101 cl0 trans-09">
+                                Shop Now
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-	<!-- Product -->
-	<section class = "bg0 p-t-23 p-b-140">
-		<div class="container">
+<!-- Product -->
+<section class="bg0 p-t-23 p-b-140">
+    <div class="container">
 
-			<div class="row">
-				<div class="col text-center">
-					<h3 class="ltext-103 cl2">
-						New Arrivals
-					</h3>
-				</div>
-			</div>
-			
-			<div class="flex-w flex-c-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10 align">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-						All Products
-					</button>
+        <div class="row">
+            <div class="col text-center">
+                <h3 class="ltext-103 cl2">
+                    New Arrivals
+                </h3>
+            </div>
+        </div>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-						Smartphones
-					</button>
+        <div class="flex-w flex-c-m p-b-52">
+            <div class="flex-w flex-l-m filter-tope-group m-tb-10 align">
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                    All Products
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-						Laptops
-					</button>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+                    Smartphones
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-						Tablets
-					</button>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+                    Laptops
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-						Audio
-					</button>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+                    Tablets
+                </button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-						Smart Watches
-					</button>
-				</div>
-			</div>
-		</div>
-	</section>
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+                    Audio
+                </button>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="js/app.js"></script>	
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+                    Smart Watches
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -1,41 +1,53 @@
-
-
 /*---------------------
   Shopping_cart
 -----------------------*/
 
 .spad {
-    padding-top:150px;
+    padding-top: 150px;
     padding-bottom: 100px;
 
 }
+
 /*---------------------
   Icons
 -----------------------*/
 
-@font-face{font-family:'FontAwesome';
-    src:url('../fonts/font_awesome/fontawesome-webfont.eot?v=4.7.0');
-    src:url('../fonts/font_awesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/font_awesome/fontawesome-webfont.eot?v=4.7.0');
+    src: url('../fonts/font_awesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
     url('../fonts/font_awesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),
     url('../fonts/font_awesome/fontawesome-webfont.woff?v=4.7.0') format('woff'),
     url('../fonts/font_awesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),
     url('../fonts/font_awesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
-    font-weight:normal;
-    font-style:normal}
-  .fa {
-      display: inline;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-  }
-.fa-close:before,.fa-times:before{content:"\f00d"}
-.fa-angle-left:before{content:"\f104"}.fa-angle-right:before{content:"\f105"}
+    font-weight: normal;
+    font-style: normal
+}
+
+.fa {
+    display: inline;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-close:before, .fa-times:before {
+    content: "\f00d"
+}
+
+.fa-angle-left:before {
+    content: "\f104"
+}
+
+.fa-angle-right:before {
+    content: "\f105"
+}
+
 /*---------------------
   Shopping Cart
 -----------------------*/
-
 
 
 .shopping__cart__table {
@@ -127,18 +139,18 @@
 
 .shopping__cart__table table tbody tr td.cart__close i {
     font-size: 18px;
-   color:#111111;
-    height:40px;
-background: rgb(243, 242, 238);
+    color: #111111;
+    height: 40px;
+    background: rgb(243, 242, 238);
     border-radius: 50%;
     line-height: 40px;
     text-align: center;
 
 
-
 }
+
 .shopping__cart__table table tbody tr td.cart__close a:hover {
-    color:red;
+    color: red;
 }
 
 
@@ -170,8 +182,6 @@ background: rgb(243, 242, 238);
 }
 
 
-
-
 .cart__discount {
     margin-bottom: 60px;
 }
@@ -197,7 +207,7 @@ background: rgb(243, 242, 238);
 }
 
 .cart__total {
-    background : #f3f2ee;
+    background: #f3f2ee;
 
 
     padding: 35px 40px 40px;
@@ -294,8 +304,6 @@ background: rgb(243, 242, 238);
     top: 0;
     height: 100%;
 }
-
-
 
 
 .cart__total {
