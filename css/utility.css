@@ -124,8 +124,25 @@
     transition: all 0.5s;
 }
 
-/* [ Padding ] */
+/* [ Float ]*/
+.float-l {float: left;}
+.float-r {float: right;}
 
+
+/* [ Text Align ]*/
+.txt-center {text-align: center;}
+.txt-left {text-align: left;}
+.txt-right {text-align: right;}
+.txt-middle {vertical-align: middle;}
+
+
+/* [ Padding ] */
+.p-all-0{
+    padding-right:0;
+    padding-left:0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
 .p-lr-15{
     padding-left: 15px;
     padding-right: 15px;
@@ -151,6 +168,7 @@
 .p-r-11{padding-right: 11px;}
 
 .p-t-80{padding-top: 80px;}
+.p-t-145{padding-top: 145px;}
 .p-t-23{padding-top: 23px;}
 .p-t-14{padding-top: 14px;}
 .p-t-3{padding-top: 3px;}

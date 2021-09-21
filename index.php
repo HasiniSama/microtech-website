@@ -376,6 +376,48 @@
 		</div>
 	</section>
 
+	<!-- Deal of the Week -->
+	<section class = "deal_of_the_week">
+		<div class="container">
+			<div class="row flex-t">
+				<div class="col-lg-6">
+					<div class="deal-pic">
+						<img src="images/banner-04.jpg" alt="DEAL-OF-THE-WEEK">
+					</div>
+				</div>
+				<div class="col-lg-6 p-t-145">
+					<div class="h-full flex-column flex-c-m float-r">
+						<div class="dis-inline-block txt-center">
+							<h2 class = "ltext-103 cl2" >Deal Of The Week</h2>
+						</div>
+						<ul class = "timer">
+							<li class = " d-inline-flex flex-column flex-c-m ">
+								<div id="day" class = "timer-num cl1 ">03</div>	
+								<div class="timer-unit ">Days</div>
+							</li>
+							<li class = "d-inline-flex flex-column flex-c-m">
+								<div id="hour" class = "timer-num cl1">15</div>	
+								<div class="timer-unit">Hours</div>
+							</li>
+							<li class = "d-inline-flex flex-column flex-c-m">
+								<div id="min" class = "timer-num cl1">45</div>	
+								<div class="timer-unit">Mins</div>
+							</li>
+							<li class = "d-inline-flex flex-column flex-c-m">
+								<div id="sec" class = "timer-num cl1">23</div>	
+								<div class="timer-unit">Sec</div>
+							</li>
+						</ul>
+						<div class = "p-t-23">
+							<a href="#" class="deal-btn flex-c-m stext-103 cl0 size-102 bg1 bor2 hov-btn1 trans-04">Shop now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

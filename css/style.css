@@ -286,8 +286,62 @@
   .block2-txt a{
     text-decoration: none;
   }
-  
-    /*[ Hover ]*/
+
+    /*[ Deal of the week ]*/
+  .deal_of_the_week{
+    width: 100%;
+    background: #f2f2f2;
+  }
+
+  .deal-pic{
+    height: 540px;
+    padding-right: 10px;
+  }
+
+  .deal-pic img{
+    height: 100%;
+  }
+
+  .section-title::after{
+    display: block;
+    position: absolute;
+    top: calc(100%+13px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+  }
+
+  /* [ Timer ]*/
+  .timer{
+    margin-top: 66px;
+  }
+
+  .timer li{
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #ffffff;
+      margin-right: 10px;
+  } 
+
+  .timer-num{
+    font-family: Poppins-Medium;
+    font-size: 48px;
+    font-weight: 600;
+    margin-top: 10px;
+
+  }
+
+  .timer-unit{
+    font-family: Poppins-Regular;
+    font-size: 16px;
+    font-weight: 500;
+    color: #51545f; 
+  }
+
+    /* [ Hover ]*/
   .hov1:hover {
     color: #333;
     border-color: #797979;
@@ -331,10 +385,13 @@
   
   iframe {border: none;}
 
-
   .how-active1 {
     color: #333;
     border-color: #797979;
+  }
+
+  .deal-btn{
+    text-decoration: none;
   }
 
   /*[ Logo ]*/
@@ -415,11 +472,24 @@
     text-transform: uppercase;
   }
 
+  .stext-101 {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.466667;
+    text-transform: uppercase;
+  }
+
   .stext-102 {
     font-family: Poppins-Regular;
     color: white;
     font-size: 14px;
     line-height: 1.7;
+  }
+
+  .stext-103 {
+    font-family: Poppins-Regular;
+    font-size: 15px;
+    line-height: 1.466667;
   }
 
   .stext-106 {
