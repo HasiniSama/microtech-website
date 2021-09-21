@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'ElegantIcons';
+    src:url('../fonts/ElegantIcons/ElegantIcons.eot');
+    src:url('../fonts/ElegantIcons/ElegantIcons.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ElegantIcons/ElegantIcons.woff') format('woff'),
+    url('../fonts/ElegantIcons/ElegantIcons.ttf') format('truetype'),
+    url('../fonts/ElegantIcons/ElegantIcons.svg#ElegantIcons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.footer {
+    background: #111111;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.footer_about {
+    margin-bottom: 30px;
+    margin-right: 110px;
+}
+
+.footer_about .footer_logo {
+    margin-bottom: 20px;
+}
+
+.footer_about .footer_logo a img {
+    display: inline-block;
+    max-width: 40%;
+    max-height: 40%;
+}
+
+.footer_about p {
+    color: #b7b7b7;
+    margin-bottom: 20px;
+}
+
+.footer_widget {
+    margin-bottom: 30px;
+    margin-right: 20px;
+    position: relative;
+    left: 20px;
+}
+
+.footer_widget h6 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.footer_widget ul li {
+    line-height: 35px;
+    list-style: none;
+}
+
+.footer_widget ul li a {
+    color: #b7b7b7;
+    font-size: 15px;
+    text-decoration: none;
+    position: relative;
+    left: -32px;
+}
+
+.footer_widget .footer_newsletter p {
+    color: #b7b7b7;
+}
+
+.footer_widget .footer_newsletter form {
+    position: relative;
+}
+
+.footer_widget .footer_newsletter form input {
+    width: 100%;
+    font-size: 15px;
+    color: #3d3d3d;
+    background: transparent;
+    border: none;
+    padding: 15px 0;
+    border-bottom: 2px solid #ffffff;
+}
+
+.footer_widget .footer_newsletter form input::-webkit-input-placeholder {
+    color: #3d3d3d;
+}
+
+.footer_widget .footer_newsletter form input::-moz-placeholder {
+    color: #3d3d3d;
+}
+
+.footer_widget .footer_newsletter form input:-ms-input-placeholder {
+    color: #3d3d3d;
+}
+
+.footer_widget .footer_newsletter form input::-ms-input-placeholder {
+    color: #3d3d3d;
+}
+
+.footer_widget .footer_newsletter form input::placeholder {
+    color: #3d3d3d;
+}
+
+.footer_widget .footer_newsletter form button {
+    color: #b7b7b7;
+    font-size: 16px;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+
+.icon_mail_alt {
+    font-family: 'ElegantIcons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon_mail_alt:before {
+    content: "\e010";
+}

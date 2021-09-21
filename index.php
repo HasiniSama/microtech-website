@@ -59,7 +59,7 @@
 							</li>
 
 							<li>
-								<a href="product.php">Shop</a>
+								<a href="shopping_page.php">Shop</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
