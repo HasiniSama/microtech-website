@@ -287,7 +287,7 @@
     text-decoration: none;
   }
 
-    /*[ Deal of the week ]*/
+    /* [ Deal of the week ] */
   .deal_of_the_week{
     width: 100%;
     background: #f2f2f2;
@@ -341,6 +341,79 @@
     color: #51545f; 
   }
 
+  /* [ Newsletter ]*/
+  .newsletter{
+    width: 100%;
+    background: #f2f2f2;
+    margin-top: 81px;
+  }
+
+  .newsletter-text{
+    height: 120px;
+
+  }
+
+  .newsletter-text h4{
+    font-family: Poppins-Regular;
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+
+  .newsletter-text p{
+    font-family: Poppins-Regular;
+    margin-bottom: 0px;
+    line-height: 1.7;
+  }
+
+  .newsletter-form{
+    height: 120px;
+  }
+
+  #newsletter-email{
+      width: 300px;
+      height: 46px;
+      background: #ffffff;
+      border: none;
+      padding-left: 20px;
+  }
+
+  #newsletter-email:focus{
+    border:solid 1px #7f7f7f !important;
+    box-shadow: none !important;
+  }
+
+  :focus{
+    outline: none !important;
+  }
+
+  #newsletter-email::-webkit-input-placeholder{
+    font-size: 14px !important;
+    font-weight: 400;
+    color: #b9b4c7 !important;
+  }
+
+  #newsletter-email::input-placeholder{
+    font-size: 14px !important;
+    font-weight: 400;
+    color: #b9b4c7 !important;
+  }
+
+  .newsletter_submit{
+    width: 160px;
+    height: 46px;
+    border:none;
+    background:#717fe0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .newsletter_submit:hover{
+    border-color: #222;
+    background-color: #222; 
+  }
     /* [ Hover ]*/
   .hov1:hover {
     color: #333;

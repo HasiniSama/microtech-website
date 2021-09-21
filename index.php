@@ -378,7 +378,7 @@
 
 	<!-- Deal of the Week -->
 	<section class = "deal_of_the_week">
-		<div class="container ">
+		<div class="container">
 			<div class="row flex-t">
 				<div class="col-lg-6">
 					<div class="deal-pic">
@@ -423,7 +423,7 @@
 	</section>
 
 	<!-- Latest Blogs -->
-	<section class = "bg0 p-t-80 p-b-140">
+	<section class = "bg0 p-t-80 ">
 		<div class="container">
 
 			<div class="row">
@@ -519,6 +519,29 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class = "newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="newsletter-text flex-col-l-m p-l-130">
+						<h4>Newsletter</h4>
+						<p class="cl6">Subscribe to our Newsletter and get 20% off your first purchase</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<form action="post">
+						<div class = "newsletter-form flex-c-m p-t-14">
+							<input id ="newsletter-email" type="email" placeholder = "Your Email" required = "required" data-error = "valid email is required." >
+							<button id = "newsletter-submit" type="submit" class="newsletter_submit" value = "submit"> 
+							Subscribe	
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
