@@ -378,17 +378,22 @@
 
 	<!-- Deal of the Week -->
 	<section class = "deal_of_the_week">
-		<div class="container">
+		<div class="container ">
 			<div class="row flex-t">
 				<div class="col-lg-6">
 					<div class="deal-pic">
 						<img src="images/banner-04.jpg" alt="DEAL-OF-THE-WEEK">
 					</div>
 				</div>
-				<div class="col-lg-6 p-t-145">
+				<div class="col-lg-6 p-t-80">
 					<div class="h-full flex-column flex-c-m float-r">
 						<div class="dis-inline-block txt-center">
 							<h2 class = "ltext-103 cl2" >Deal Of The Week</h2>
+						</div>
+						<div class="txt-center">
+							<h3 class="stext-106 cl6">
+								Grab it while you can!
+							</h3>
 						</div>
 						<ul class = "timer">
 							<li class = " d-inline-flex flex-column flex-c-m ">
@@ -417,6 +422,107 @@
 		</div>
 	</section>
 
+	<!-- Latest Blogs -->
+	<section class = "bg0 p-t-80 p-b-140">
+		<div class="container">
+
+			<div class="row">
+				<div class="col txt-center">
+					<h3 class="ltext-103 cl2">
+						Latest Blogs
+					</h3>
+				</div>
+			</div>
+			<div class="row p-t-3 p-b-30 ">
+				<div class="col txt-center">
+					<h3 class="stext-106 cl6">
+						Read all the latest product reviews here
+					</h3>
+				</div>
+			</div>
+			<div class="row isotope-grid flex-c-m">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+					<!-- Block -->
+					<div class="block2">
+						<div class="block2-pic hov-img1">
+							<img src="images/blog_1.jpg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								Read now
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+									M1 MacBook Air review
+								</a>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 m-l-32 p-b-35 isotope-item">
+					<!-- Block -->
+					<div class="block2">
+						<div class="block2-pic hov-img1">
+							<img src="images/blog_2.jpg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								Read now
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+									M1 MacBook Air review
+								</a>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 m-l-32 p-b-35 isotope-item">
+					<!-- Block -->
+					<div class="block2">
+						<div class="block2-pic hov-img1">
+							<img src="images/blog_3.jpg" alt="IMG-PRODUCT">
+							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								Read now
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+									M1 MacBook Air review
+								</a>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

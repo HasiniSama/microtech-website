@@ -164,13 +164,16 @@
 }
 
 .p-l-22{padding-left: 22px;}
+.p-l-50{padding-left: 50px;}
 
 .p-r-11{padding-right: 11px;}
 
 .p-t-80{padding-top: 80px;}
+.p-t-130{padding-top: 130px;}
 .p-t-145{padding-top: 145px;}
 .p-t-23{padding-top: 23px;}
 .p-t-14{padding-top: 14px;}
+.p-t-10{padding-top: 10px;}
 .p-t-3{padding-top: 3px;}
 
 .p-b-6 {padding-bottom: 6px;}
@@ -201,3 +204,4 @@
 }
 
 .m-r-32{margin-right: 32px;}
+.m-l-32{margin-left: 32px;}
