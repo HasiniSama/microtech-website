@@ -85,6 +85,7 @@
     font-weight: 700;
     text-transform: uppercase;
     display: block;
+    font-family: Poppins-Bold;
 }
 
 .shop_sidebar_accordion .card-heading a {
@@ -104,7 +105,7 @@
 }
 
 .shop_sidebar_filter ul li a {
-    color: #b7b7b7;
+    color: #999;
     font-size: 15px;
     line-height: 32px;
     -webkit-transition: all, 0.3s;
@@ -113,10 +114,11 @@
     text-decoration: none;
     position: relative;
     left: -31px;
+    font-family: Poppins-Regular;
 }
 
 .shop_sidebar_filter ul li a:hover {
-    color: #111111;
+    color: #717fe0;
 }
 
 
@@ -165,7 +167,7 @@
 
 .product_item_text a {
     font-size: 15px;
-    color: #e53637;
+    color:#717fe0;
     font-weight: 700;
     position: absolute;
     left: 0;
@@ -179,18 +181,20 @@
 }
 
 .product_item_text h6 {
-    color: #111111;
+    color: #888;
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 5px;
     -webkit-transition: all, 0.3s;
     -o-transition: all, 0.3s;
     transition: all, 0.3s;
+    font-family: Poppins-Regular;
 }
 
 .product_item_text h5 {
     color: #0d0d0d;
     font-weight: 700;
+    font-family: Poppins-Bold;
 }
 
 .set-bg {

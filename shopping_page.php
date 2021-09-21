@@ -8,6 +8,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/utility.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -65,12 +66,12 @@
                 <!-- Menu -->
                 <div class="menu">
                     <ul class="main-menu">
-                        <li class="active-menu">
+                        <li>
                             <a href="index.php">Home</a>
                         </li>
 
-                        <li>
-                            <a href="product.php">Shop</a>
+                        <li class="active-menu">
+                            <a href="shopping_page.php">Shop</a>
                         </li>
 
                         <li class="label1" data-label1="hot">
@@ -378,5 +379,6 @@
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/shopping_page.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
