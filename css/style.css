@@ -167,6 +167,19 @@
     -ms-box-shadow: 0 0px 3px 0px rgba(0, 0, 0, 0.2);
 }
 
+.how-shadow1 {
+  box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+  -o-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+  -ms-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+}
+
+
+.bread-crumb a{
+  text-decoration: none;
+}
+
 /* [ Block1 ] */
 .block1 {
     position: relative;
@@ -246,18 +259,6 @@
     -ms-transform: translateY(0%);
     -o-transform: translateY(0%);
     transform: translateY(0%);
-<<<<<<< HEAD
-}
-
-/*[ Hover ]*/
-.hov1:hover {
-    color: #333;
-    border-color: #797979;
-}
-
-/*[ Border ]*/
-.bor3 {
-=======
   }
 
  /* [ Block2 ] */
@@ -461,7 +462,6 @@
   }
 
   .bor3 {
->>>>>>> main
     border-bottom: 1px solid transparent;
 }
 
@@ -473,35 +473,17 @@ button {
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-button:focus {
-    outline: none;
-}
-
-iframe {
-    border: none;
-}
-
-
-.how-active1 {
-=======
   .how-active1 {
->>>>>>> main
     color: #333;
     border-color: #797979;
 }
 
-<<<<<<< HEAD
-/*[ Logo ]*/
-.logo {
-=======
   .deal-btn{
     text-decoration: none;
   }
 
   /*[ Logo ]*/
   .logo {
->>>>>>> main
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -528,59 +510,25 @@ iframe {
     font-size: 26px;
     line-height: 1;
     cursor: pointer;
-<<<<<<< HEAD
-}
-
-/* [ Font Colors ] */
-.cl0 {
-    color: #fff;
-}
-
-.cl1 {
-    color: #717fe0;
-}
-
-.cl2 {
-    color: #333;
-}
-
-.cl6 {
-    color: #888;
-}
-
-/* [ Background Colors ] */
-.bg0 {
-    background-color: #fff;
-}
-
-.bg1 {
-    background-color: #717fe0;
-}
-
-.bg2 {
-    background-color: #e6e6e6;
-}
-
-/* [ Hover ] */
-.hov-cl0:hover {
-    color: #fff;
-}
-
-.hov-cl1:hover {
-    color: #717fe0;
-}
-
-/* [ Responsive ] */
-.respon3 {
-=======
   }
+.icon-header-item a {
+  color:#333;
+}
+
+.icon-header-item a:hover {
+  color:#717fe0;
+}
   
   /* [ Font Colors ] */
   .cl0 {color: #fff;}
   .cl1 {color: #717fe0;}
   .cl2 {color: #333;}
+  .cl3 {color: #666;}
   .cl4 {color: #999;}
+  .cl5 {color: #222;}
   .cl6 {color: #888;}
+  .cl7 {color: #b2b2b2;}
+  .cl8 {color: #555;}
   
   /* [ Background Colors ] */
   .bg0 {background-color: #fff;}
@@ -605,7 +553,6 @@ iframe {
 
   /* [ Responsive ] */
   .respon3 {
->>>>>>> main
     padding: 20px;
 }
 
@@ -624,9 +571,6 @@ iframe {
     text-transform: uppercase;
 }
 
-<<<<<<< HEAD
-.stext-102 {
-=======
   .stext-101 {
     font-family: Poppins-Medium;
     font-size: 15px;
@@ -635,33 +579,11 @@ iframe {
   }
 
   .stext-102 {
->>>>>>> main
     font-family: Poppins-Regular;
     color: white;
     font-size: 14px;
     line-height: 1.7;
 }
-
-<<<<<<< HEAD
-.stext-106 {
-    font-family: Poppins-Regular;
-    font-size: 15px;
-    line-height: 1.2;
-}
-  
-=======
-  .stext-103 {
-    font-family: Poppins-Regular;
-    font-size: 15px;
-    line-height: 1.466667;
-  }
-
-  .stext-106 {
-  font-family: Poppins-Regular;
-  font-size: 15px;
-  line-height: 1.2;
-  }
->>>>>>> main
 
   .stext-103 {
     font-family: Poppins-Regular;
@@ -680,6 +602,18 @@ iframe {
     font-size: 14px;
     line-height: 1.466667;
     letter-spacing: 1px;
+  }
+
+  .stext-106 {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  line-height: 1.2;
+  }
+
+  .stext-109 {
+    font-family: Poppins-Regular;
+    font-size: 12px;
+    line-height: 1.833333;
   }
 
   /* [ Size ]*/

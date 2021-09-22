@@ -13,10 +13,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/footer.css"
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-          rel="stylesheet">
-
 
 </head>
 <body>
@@ -71,7 +67,7 @@
                             <a href="product.php">Shop</a>
                         </li>
 
-                        <li class="label1 active-menu" data-label1="hot">
+                        <li>
                             <a href="shopping_cart.php">Features</a>
                         </li>
 
@@ -95,8 +91,9 @@
                         <i class="zmdi zmdi-search"></i>
 
                     </div>
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
                          data-notify="2">
+                        <a href="shopping_cart.php">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 

@@ -55,7 +55,7 @@
         </div>
 
         <!-- Menu bar -->
-        <div class="wrap-menu">
+        <div class="wrap-menu how-shadow1">
             <nav class="limiter-menu container">
 
                 <!-- Logo -->
@@ -98,8 +98,9 @@
                         <i class="zmdi zmdi-search"></i>
 
                     </div>
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
                          data-notify="2">
+                        <a href="shopping_cart.php">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 
@@ -113,8 +114,27 @@
     </div>
 </header>
 
+<!-- breadcrumb -->
+<div class="container">
+    <div class="bread-crumb flex-w  p-r-15 p-t-100">
+        <a href="index.php" class="stext-109 cl8 hov-cl1 trans-04">
+            Home
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+
+        <a href="shopping_page.php" class="stext-109 cl8 hov-cl1 trans-04">
+            Shop
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+        </a>
+
+        <span class="stext-109 cl4">
+            Smartphones
+        </span>
+    </div>
+</div>
+
 <!-- Shop Section -->
-<section class="spad">
+<section class="shop">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -378,6 +398,7 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/bfc2cbc6c6.js" crossorigin="anonymous"></script>
 <script src="js/shopping_page.js"></script>
 <script src="js/app.js"></script>
 </body>
