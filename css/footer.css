@@ -1,7 +1,12 @@
 @font-face {
     font-family: 'ElegantIcons';
+<<<<<<< HEAD
     src: url('../fonts/ElegantIcons/ElegantIcons.eot');
     src: url('../fonts/ElegantIcons/ElegantIcons.eot?#iefix') format('embedded-opentype'),
+=======
+    src:url('../fonts/ElegantIcons/ElegantIcons.eot');
+    src:url('../fonts/ElegantIcons/ElegantIcons.eot?#iefix') format('embedded-opentype'),
+>>>>>>> main
     url('../fonts/ElegantIcons/ElegantIcons.woff') format('woff'),
     url('../fonts/ElegantIcons/ElegantIcons.ttf') format('truetype'),
     url('../fonts/ElegantIcons/ElegantIcons.svg#ElegantIcons') format('svg');
