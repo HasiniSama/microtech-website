@@ -571,3 +571,9 @@ input.num-product::-webkit-inner-spin-button {
     padding-left: 20;
     padding-right: 20;
 }
+
+.relate-product-section{
+    background-color: #fff;
+    padding-top: 45px;
+    padding-bottom: 105px;
+}
