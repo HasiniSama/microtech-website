@@ -1,14 +1,18 @@
 .container-form {
     max-width: 960px;
-    padding-top: 30px;
+    padding-top: 20px;
 
 }
-
 
 
 .lh-condensed {
     line-height: 1.25;
 }
+
+.textblue {
+    color: #6c7ae0;
+}
+
 
 /*icons*/
 @font-face {
