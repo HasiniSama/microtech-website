@@ -25,8 +25,8 @@
 
                         <form action="#" method="post">
                             <div class="form-group first">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username">
+                                <label for="email">Email address</label>
+                                <input type="text" class="form-control" id="email">
 
                             </div>
                             <div class="form-group last mb-4">
@@ -40,7 +40,7 @@
                                 </span>
 
                                 <a href="#" class="">
-                                    Username / Password?
+                                    Password?
                                 </a>
                             </div>
 
