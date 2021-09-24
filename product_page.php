@@ -7,9 +7,11 @@
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/utility.css">
+	<link rel="stylesheet" type="text/css" href="css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	
 </head>
 <body>
     <!-- Header -->
@@ -119,11 +121,240 @@
         </div>
     </div>
 
+    <!-- Product Detail -->
+	<section class="sec-product-detail">
+		<div class="container single-product">
+			<div class="row">
+				<div class="col-md-6 col-lg-7 product-image">
+					<img src="images/products/13.0.webp" id = "ProductImg" alt="PRODUCT-IMG">
+					<div class="small-img-row">
+						<div class="small-img-col">
+							<img src="images/products/13.0.webp" alt="PRODUCT-IMG" class = "small-img">
+						</div>
+						<div class="small-img-col">
+							<img src="images/products/13.1.webp" alt="PRODUCT-IMG" class = "small-img">
+						</div>
+						<div class="small-img-col">
+							<img src="images/products/13.2.jpeg" alt="PRODUCT-IMG" class = "small-img">
+						</div>
+						<div class="small-img-col">
+							<img src="images/products/13.3.webp" alt="PRODUCT-IMG" class = "small-img">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-5 p-b-30">
+					<div class="product-section">
+						<h4 class="js-name-detail">
+							Samsung Galaxy Note20 5G
+						</h4>
+						<span>
+							LKR. 174,990/-
+						</span>
+						<p>
+								It's anything but your average smartphone.
+								Introducing the Powerphone that forever changes how you work and play.
+						</p>
+						
+						<div class="product-details">
+							<div class="product-options">
+								<div class="product-color-header respon6">
+									Color
+								</div>
+								<div class="product-color-options">
+									<div class="color-options">
+										<select class="form-select" id = form-color aria-label=".form-select-sm example">
+											<option selected>Choose an option</option>
+											<option value="1">Black</option>
+											<option value="2">Grey</option>
+											<option value="3">White</option>
+										</select>	
+									</div>
+								</div>
+							</div>
+
+							<div class="product-options">
+								<div class="product-amount">
+									<div class="amount-counter">
+										<div class="btn-num-product-down">
+											<i class="fs-16 zmdi zmdi-minus"></i>
+										</div>
+
+										<input class="num-product" type="number" name="num-product" value="1">
+
+										<div class="btn-num-product-up">
+											<i class="fs-16 zmdi zmdi-plus"></i>
+										</div>
+									</div>
+
+									<button class="btn-add-cart js-addcart-detail">
+										Add to cart
+									</button>
+								</div>
+							</div>	
+						</div>
+
+						<div class="addtional-options">
+							<div class="add-to-wishlist">
+								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail">
+									<i class="zmdi zmdi-favorite"></i>
+								</a>
+							</div>
+							<h6>Add to wishlist</h6>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="product-desc-section">
+				<!-- Tab01 -->
+				<div class="tab01">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#information" role="tab">Additional information</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (1)</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+
+						<div class="tab-pane fade show active" id="description" role="tabpanel">
+							<div class="how-pos2">
+								<p>
+								It's the ultimate gaming experience that goes where you go. It's a director-grade 8K video camera. It's a multitasking computer suite. It's anything but your average smartphone.
+								Introducing the Powerphone that forever changes how you work and play.
+								</p>
+							</div>
+						</div>
+
+						<div class="tab-pane fade" id="information" role="tabpanel">
+							<div class="row">
+								<div class="col-sm-10 col-md-8 col-lg-6 adi-info">
+									<ul>
+										<li>
+											<span>Display</span>
+											<span>6.7</span>
+										</li>
+										<li>
+											<span>RAM</span>
+											<span>8 GB</span>
+										</li>
+										<li>
+											<span>Storage</span>
+											<span>128GB/256GB</span>
+										</li>
+										<li>
+											<span>Camera</span>
+											<span>64MP</span>
+										</li>
+										<li>
+											<span>Battery</span>
+											<span>4300 mAh</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane fade" id="reviews" role="tabpanel">
+							<div class="row">
+								<div class="col-sm-10 col-md-8 col-lg-6 review-tab">
+									<div class="review-section">
+										<div class="other-reviews-section">
+											<div class="other-review">
+												<div class="header">
+													<span id="reviewer">
+														Krishan Shamod
+													</span>
+													<span id="rating">
+														<i class="zmdi zmdi-star"></i>
+														<i class="zmdi zmdi-star"></i>
+														<i class="zmdi zmdi-star"></i>
+														<i class="zmdi zmdi-star"></i>
+														<i class="zmdi zmdi-star-half"></i>
+													</span>
+												</div>
+
+												<p id="other-review">
+													Very phone.  Much style. Stylish pen is exceptionally good. 10/10 would recommend.
+												</p>
+											</div>
+										</div>
+										
+										<!-- Add a review -->
+										<form>
+											<h5>Add a review</h5>
+											<p> Your email address will not be published. Required fields are marked *</p>
+
+											<div id="your-rating">
+												<span class="your-rating-header">
+													Your Rating
+												</span>
+												<span class="wrap-rating">
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<input class="dis-none" type="number" name="rating">
+												</span>
+											</div>
+
+											<div class="row review-area">
+												<div class="col-12">
+													<label for="review">Your review</label>
+													<textarea id="review" name="review"></textarea>
+												</div>
+
+												<div class="col-sm-6 txt-box">
+													<label for="name">Name</label>
+													<input id="name" type="text" name="name">
+												</div>
+
+												<div class="col-sm-6 txt-box">
+													<label for="email">Email</label>
+													<input id="email" type="text" name="email">
+												</div>
+											</div>
+
+											<button class="btn-add-cart">
+												Submit
+											</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/bfc2cbc6c6.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	</script>
+    <script src="js/product.js"></script>
     <script src="js/app.js"></script>	
 
 </body>
