@@ -13,6 +13,9 @@
     color: #6c7ae0;
 }
 
+.hoverclass button:hover {
+    background-color: #717fe0;
+}
 
 /*icons*/
 @font-face {
