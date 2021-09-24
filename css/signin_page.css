@@ -2,6 +2,18 @@ p {
     color: #b3b3b3;
     font-weight: 300; }
 
+label {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 0;
+    color: #b3b3b3; }
+
+.spacing {
+    padding-top: 17px; }
+
+.last {
+    padding-bottom: 10px; }
+
 .content {
     padding: 7rem 0; }
 
@@ -20,7 +32,8 @@ p {
     transform: translateY(-50%);
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
-    transition: .3s all ease; }
+    transition: .3s all ease;
+}
 
 .content .contents .form-group input, .content .bg .form-group input {
     background: transparent;
