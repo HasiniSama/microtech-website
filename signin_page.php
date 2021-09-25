@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="css/signin_page.css">
     <link rel="stylesheet" type="text/css" href="css/shopping_cart.css">
 
-
 </head>
 <body>
 
@@ -25,15 +24,18 @@
                         <h3>Sign In to <a href="index.php">MiCROTECH</a></h3>
                         <p class="mb-4"> Online shopping platform for all your electronic needs and cravings. </p>
 
-                        <form action="#" method="post">
+                        <form action="signin_check.php" method="POST">
+                            <?php if (isset($_GET['error'])) { ?>
+                                <p class="error"><?php echo $_GET['error']; ?></p>
+                            <?php } ?>
                             <div class="form-group first">
                                 <label for="email">Email address</label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" name="email" class="form-control" id="email">
 
                             </div>
                             <div class="form-group last mb-4">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" name="password" class="form-control" id="password">
                             </div>
 
                             <div class="d-block text-end my-4 txt1">
