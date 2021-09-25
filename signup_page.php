@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/signin_page.css">
+    <link rel="stylesheet" type="text/css" href="css/shopping_cart.css">
+
 
 </head>
 <body>
@@ -20,7 +22,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
 
-                        <h3>Sign Up to <strong>MiCROTECH</strong></h3>
+                        <h3>Sign Up to <a href="index.php">MiCROTECH</a></h3>
 
                         <form action="#" method="post">
                             <div class="row">
@@ -78,8 +80,13 @@
                                 <input type="password" class="form-control" id="confpassword">
                             </div>
 
-                            <input type="submit" value="Sign Up" class="btn text-white btn-block btn-primary">
-
+                            <input type="submit" value="Sign Up" class="btn btn-block primary-btn">
+                            <div class="d-block text-center my-4 p-b-30 txt1">
+                                    Already have an account? 
+                                <a href="signin_page.php" class="txt2">
+                                    Sign In
+                                </a>
+                            </div>
                         </form>
                     </div>
                 </div>

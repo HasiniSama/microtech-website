@@ -282,7 +282,7 @@
     letter-spacing: 2px;
 }
 
-.cart__total .primary-btn:hover{
+.primary-btn:hover{
     color: #ffffff;
     border-color: #717fe0;
     background-color: #717fe0; 

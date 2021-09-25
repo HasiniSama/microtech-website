@@ -1,5 +1,10 @@
+.content{
+    background-color: #ccc;
+    height: 100%;
+}
+
 p {
-    color: #b3b3b3;
+    color: #666;
     font-weight: 300; }
 
 label {
@@ -15,10 +20,32 @@ label {
     padding-bottom: 10px; }
 
 .content {
-    padding: 7rem 0; }
+    padding: 7rem 0; 
+    background-color: #717fe0;
+}
 
 .content .contents, .content .bg {
-    width: 50%; }
+    width: 50%; 
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.content h3{
+    padding-top: 80px;
+    font-family: Poppins-Regular;
+    padding-bottom: 10px;
+}
+
+.content h3 a{
+    color: black;
+    text-decoration: none;
+    font-family: Poppins-Bold;
+}
+
+.content h3 a:hover{
+    color:#717fe0;
+    text-decoration: none;
+}
 
 .content .contents .form-group, .content .bg .form-group {
     position: relative;
@@ -48,7 +75,7 @@ label {
     border-bottom-right-radius: 7px; }
 
 .content .contents .form-group label, .content .bg .form-group label {
-    font-size: 12px;
+    font-size: 14px;
     display: block;
     margin-bottom: 0;
     color: #b3b3b3; }
@@ -62,7 +89,7 @@ label {
 .content .contents .form-control, .content .bg .form-control {
     border: none;
     padding: 0;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 0; }
 
 .content .contents .form-control:active, .content .contents .form-control:focus, .content .bg .form-control:active, .content .bg .form-control:focus {
@@ -94,13 +121,17 @@ label {
 }
 
 .txt1 {
-    font-size: 15px;
+    font-size: 18px;
+    font-family: Poppins-SemiBold;
     line-height: 1.4;
-    color: #999999;
+    color: #666;
+    text-align: end;
 }
 
-.txt2 {
-    font-size: 15px;
-    line-height: 1.4;
-    color: #4272d7;
+.txt1 a:hover{
+    color:#222;
+}
+
+.p-b-30{
+    padding-bottom: 30px;
 }

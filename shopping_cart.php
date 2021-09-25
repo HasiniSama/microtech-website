@@ -203,7 +203,7 @@
                         <li>Subtotal <span>LKR. 174,990/-</span></li>
                         <li>Total <span>LKR. 174,990/-</span></li>
                     </ul>
-                    <a href="#" class="primary-btn"><span>Proceed to checkout</span></a>
+                    <a href="checkout.php" class="primary-btn"><span>Proceed to checkout</span></a>
                 </div>
             </div>
         </div>

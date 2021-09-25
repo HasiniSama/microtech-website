@@ -26,9 +26,15 @@
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                    <a href="#" class="nav-link dropdown-toggle flex-c-m trans-04 p-lr-25" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php echo "My Account" ?>
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="shopping_cart.php">My Cart</a>
+                        <a class="dropdown-item" href="#">My Wishlist</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </div>
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
                         <?php echo "Help & FAQs" ?>
