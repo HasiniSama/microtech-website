@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Sep 23, 2021 at 08:27 PM
--- Server version: 5.7.34
--- PHP Version: 7.4.21
+-- Host: localhost
+-- Generation Time: Sep 26, 2021 at 09:48 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,21 +35,6 @@ CREATE TABLE `address` (
   `country` varchar(20) NOT NULL,
   `zip` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `address`
---
-
-INSERT INTO `address` (`usermail`, `addr_line1`, `addr_line2`, `city`, `country`, `zip`) VALUES
-('aliquet@eu.ca', '346', 'Dictum. Av.', 'Veda Zamora', 'Sri Lanka', 32435),
-('curabitur.dictum@velitsed.ca', '3586', 'Mus. St.', 'Veda Zamora', 'Sri Lanka', 23435),
-('donec.dignissim@loremauctor.net', '676', 'Varius Rd.', 'Veda Zamora', 'Sri Lanka', 32435),
-('id.mollis@habitantmorbitristique.org', '876', 'Varius Rd.', 'Veda Zamora', 'Sri Lanka', 23543),
-('libero.proin.sed@ettristiquepellentesque.co.uk', '676', 'Varius Rd.', 'Veda Zamora', 'Sri Lanka', 23435),
-('mauris.a.nunc@lacusetiambibendum.com', '762', 'Diam Road', 'Veda Zamora', 'Sri Lanka', 32435),
-('phasellus.ornare@etiamimperdiet.net', '676', 'Varius Rd', 'Veda Zamora', 'Sri Lanka', 23435),
-('sed.diam.lorem@quisquenonummyipsum.ca', '312', 'Varius Rd', 'Veda Zamora', 'Sri Lanka', 23435),
-('ullamcorper.magna@risusdonecegestas.net', '842', 'liberto proin', 'Veda Zamora', 'Sri Lanka', 32435);
 
 -- --------------------------------------------------------
 
@@ -115,7 +100,7 @@ CREATE TABLE `orders` (
   `orderid` varchar(10) NOT NULL,
   `emai` varchar(50) NOT NULL,
   `price` int(7) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -140,29 +125,10 @@ CREATE TABLE `users` (
   `f_name` varchar(30) NOT NULL,
   `l_name` varchar(30) NOT NULL,
   `password` varchar(40) NOT NULL,
-  `mobile_no` varchar(12) NOT NULL
+  `email_verification_link` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`email`, `f_name`, `l_name`, `password`, `mobile_no`) VALUES
-('adipiscing.fringilla.porttitor@dolornulla.ca', 'Vance', 'Taylor', 'OEY09ORB3WY', '264-751-4291'),
-('aliquet@eu.ca', 'Austin', 'Gaines', 'XDC95TJB0NG', '257-794-6688'),
-('curabitur.dictum@velitsed.ca', 'Henry', 'Sandoval', 'CTQ26PIS0SY', '789-244-5650'),
-('cursus.nunc@egestassedpharetra.co.uk', 'Dennis', 'Cooke', 'WNY64ACF3FV', '174-243-8186'),
-('donec.dignissim@loremauctor.net', 'Ralph', 'Flynn', 'ADM43WOG4ZW', '341-415-3878'),
-('enim@lobortistellus.ca', 'Isabella', 'Blankenship', 'OLI31UBS7KN', '480-711-2723'),
-('et@quam.com', 'Jocelyn', 'Dalton', 'VQG43PYD8KL', '858-868-4753'),
-('id.mollis@habitantmorbitristique.org', 'Courtney', 'Bird', 'QJY40SIK8IX', '863-716-2248'),
-('libero.proin.sed@ettristiquepellentesque.co.uk', 'Veda', 'Zamora', 'RMX96THY3ZJ', '876-842-6028'),
-('mauris.a.nunc@lacusetiambibendum.com', 'Clare', 'Bennett', 'CLT29DOQ9IO', '145-685-9435'),
-('mi.lacinia@sollicitudin.com', 'Oren', 'Battle', 'HVJ86JNX1XP', '118-384-3682'),
-('nunc@ametnulla.ca', 'Adrian', 'Stephens', 'SSW21BLE7DR', '215-590-4892'),
-('phasellus.ornare@etiamimperdiet.net', 'Lucius', 'Huffman', 'WZW75SES0GG', '249-174-3383'),
-('sed.diam.lorem@quisquenonummyipsum.ca', 'Jesse', 'Pate', 'IMW70YUI5TO', '965-479-3052'),
-('ullamcorper.magna@risusdonecegestas.net', 'Galvin', 'Mcgee', 'PYE43UJU7TG', '115-482-5622');
 
 --
 -- Indexes for dumped tables
