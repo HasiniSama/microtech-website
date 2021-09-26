@@ -32,16 +32,23 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
             if ($row['email'] === $email && $row['password'] === $pass) {
-            	$_SESSION['email'] = $row['email'];
-            	$_SESSION['fname'] = $row['f_name'];
-				$_SESSION['lname'] = $row['l_name'];
+				if($row['status'] === '0' ){
+					header("Location: signin_page.php?error=Please verify your email");
+		        	exit();
+				}else{
+					$_SESSION['email'] = $row['email'];
+					$_SESSION['fname'] = $row['f_name'];
+					$_SESSION['lname'] = $row['l_name'];
 
-            	header("Location: index.php");
-		        exit();
+					header("Location: index.php");
+					exit();
+				}
+            	
             }else{
 				header("Location: signin_page.php?error=Incorect email or password");
 		        exit();
 			}
+
 		}else{
 			header("Location: signin_page.php?error=Incorect email or password");
 	        exit();
