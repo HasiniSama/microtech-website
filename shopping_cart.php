@@ -1,3 +1,14 @@
+<?php
+
+include "db_conn.php";
+
+session_start();
+$_SESSION['total'] = 0;
+
+$sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail=.$_SESSION['email']. and cart.itemid=items.item_id;";
+$result = $conn->query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +71,7 @@
                 <!-- Menu -->
                 <div class="menu">
                     <ul class="main-menu">
-                        <li >
+                        <li>
                             <a href="index.php">Home</a>
                         </li>
 
@@ -95,7 +106,7 @@
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
                          data-notify="2">
                         <a href="shopping_cart.php">
-                        <i class="zmdi zmdi-shopping-cart" id ="icon-active"></i>
+                            <i class="zmdi zmdi-shopping-cart" id="icon-active"></i>
                     </div>
 
                     <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
@@ -144,32 +155,37 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="product__cart__item">
-                                <div class="product__cart__item__pic">
-                                    <img src="images/products/13.0.webp" alt="">
-                                </div>
-                                <div class="product__cart__item__text">
-                                    <h6>Samsung Galaxy Note20 5G</h6>
-                                    <h5>LKR. 174,990 </h5>
-                                </div>
-                            </td>
-                            <td class="quantity__item">
-                                <div class="amount-counter">
-                                    <div class="btn-num-product-down">
-                                        <i class="fs-16 zmdi zmdi-minus"></i>
+                        <!--                        Iterate through cart - begin-->
+                        <?php while ($row = $result->fetch_array()) { ?>
+                            <tr>
+                                <td class="product__cart__item">
+                                    <div class="product__cart__item__pic">
+                                        <img <?php echo "src='images/products/".$row['img_name1']."'"; ?>  alt="">
                                     </div>
-
-                                    <input class="num-product" type="number" name="num-product" value="1">
-
-                                    <div class="btn-num-product-up">
-                                        <i class="fs-16 zmdi zmdi-plus"></i>
+                                    <div class="product__cart__item__text">
+                                        <h6><?php echo $row['item_name']; ?></h6>
+                                        <h5><?php echo "LKR. ".$row['item_price']; ?></h5>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="cart__price">LKR. 174,990/-</td>
-                            <td class="cart__close"><i class="fa fa-close"></i></td>
-                        </tr>
+                                </td>
+                                <td class="quantity__item">
+                                    <div class="amount-counter">
+                                        <div class="btn-num-product-down">
+                                            <i class="fs-16 zmdi zmdi-minus"></i>
+                                        </div>
+
+                                        <input class="num-product" type="number" name="num-product" value=<?php echo $row['no_of_items']?>>
+
+                                        <div class="btn-num-product-up">
+                                            <i class="fs-16 zmdi zmdi-plus"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart__price"><?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";?></td>
+                                <td class="cart__close"><i class="fa fa-close"></i></td>
+                            </tr>
+                        <?php $_SESSION['total'] += $row['item_price']*$row['no_of_items'];
+                        } ?>
+                        <!--                        iterate through cart - end-->
 
                         </tbody>
                     </table>
@@ -200,8 +216,8 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>LKR. 174,990/-</span></li>
-                        <li>Total <span>LKR. 174,990/-</span></li>
+
+                        <li>Total <span><?php echo "LKR ".$_SESSION['total'] ?></span></li>
                     </ul>
                     <a href="checkout.php" class="primary-btn"><span>Proceed to checkout</span></a>
                 </div>
@@ -261,12 +277,20 @@
         </div>
     </div>
 </footer>
-    <!--Footer section end-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>	
-    <script src="js/product.js"></script>
+<!--Footer section end-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="js/app.js"></script>
+<script src="js/product.js"></script>
 </body>
 </html>
