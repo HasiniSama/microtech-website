@@ -10,15 +10,32 @@
     <link rel="stylesheet" type="text/css" href="css/checkout.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/
+          material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
 </head>
 <body>
 
-<!-- Header -->
-<?php $page = 'checkout'; include 'include/header.php'; ?>
+<?php
+    /*including header*/
+    $page = 'cart'; include 'include/header.php';
+
+    /*getting session variables*/
+    $email = $_SESSION['email'];
+    $cart_sql = $_SESSION['cart_sql'];
+    $cart_result = $conn->query($cart_sql);
+
+
+    $order_sql = "SELECT * FROM orders;";
+    $order_result = $conn->query($order_sql);
+    $numberOfItems = $result1->num_rows;
+
+
+
+?>
+
 
 <!-- Breadcrumb -->
 <div class="container">
@@ -37,6 +54,26 @@
 
 
 <!--Form begin-->
+<form method="post" action="https://sandbox.payhere.lk/pay/checkout">
+    <input type="hidden" name="merchant_id" value="1218734">
+    <input type="hidden" name="return_url" value="http://localhost:63342/microtech-website/index.php">
+    <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+    <input type="hidden" name="notify_url" value="http://sample.com/notify">
+
+
+
+    <input type="hidden" name="order_id" value="ItemNo12345">
+    <input type="hidden" name="items" value="Door bell wireless"><br>
+    <input type="hidden" name="currency" value="LKR">
+    <input type="hidden" name="amount" value="<?php echo $_SESSION['total']?>">
+
+
+
+
+
+
+
+
 <div class="container container-form">
 
     <div class="row">
@@ -46,65 +83,58 @@
                 <span class="badge badge-secondary badge-pill">3</span>
             </h4>
             <ul class="list-group mb-3 sticky-top">
+                <?php while ($row = $cart_result->fetch_array()) {
+
+                ?>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
+                        <h6 class="my-0"><?php echo $row['item_name']; ?></h6>
+
                     </div>
-                    <span class="text-muted">LKR 120000</span>
+                    <span class="text-muted">LKR <?php echo $row['item_price']; ?></span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">LKR 200000</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">LKR 500000</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light text-success">
-                    <div class="text-success">
-                        <h6 class="my-0 textblue">Promo code</h6>
-                        <small class="textblue">EXAMPLECODE</small>
-                    </div>
-                    <span class="textblue">-LKR 50000</span>
-                </li>
+                <?php }?>
+
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (LKR)</span>
-                    <strong>LKR 770000</strong>
+                    <span>Total</span>
+                    <strong>LKR <?php echo $_SESSION['total']; ?></strong>
                 </li>
             </ul>
 
         </div>
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing address</h4>
+            <h4 class="mb-3">Billing</h4>
             <form class="needs-validation hoverclass" novalidate="">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                        <input type="text" class="form-control" id="firstName" name="first_name" placeholder="" value=""
+                               required="">
                         <div class="invalid-feedback"> Valid first name is required.</div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="" value=""
+                               required="">
                         <div class="invalid-feedback"> Valid last name is required.</div>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Required)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                     <div class="invalid-feedback"> Please enter a valid email address for shipping updates.</div>
                 </div>
                 <div class="mb-3">
+                    <label for="phone_no">Phone no <span class="text-muted">(Required)</span></label>
+                    <input type="tel" class="form-control" placeholder="provide a valid Phone no" name="phone"
+                           pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}">
+                    <div class="invalid-feedback"> Please enter a valid Phone no</div>
+                </div>
+                <div class="mb-3">
                     <label for="address">Street adress 1</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                    <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St"
+                           required="">
                     <div class="invalid-feedback"> Please enter your shipping address.</div>
                 </div>
                 <div class="mb-3">
@@ -112,26 +142,15 @@
                     <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
                 </div>
                 <div class="row">
+
                     <div class="col-md-4 mb-3">
-                        <label for="city">City</label>
-                        <select class="custom-select d-block w-100" id="city" required="">
-                            <option value="">Choose...</option>
-                            <option>Colombo</option>
-                            <option>Kaluthara</option>
-                        </select>
-                        <div class="invalid-feedback"> Please provide a valid state.</div>
-                    </div>
-                    <div class="col-md-5 mb-3">
-                        <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required="">
-                            <option value="">Choose...</option>
-                            <option>Sri Lanka</option>
-                            <option>United States</option>
-                        </select>
-                        <div class="invalid-feedback"> Please select a valid country.</div>
+                        <label for="zip">City</label>
+                        <input type="text" class="form-control" id="zip" placeholder="" required="">
+                        <div class="invalid-feedback"> Zip code required.</div>
                     </div>
 
-                    <div class="col-md-3 mb-3">
+
+                    <div class="col-md-4 mb-3">
                         <label for="zip">Zip</label>
                         <input type="text" class="form-control" id="zip" placeholder="" required="">
                         <div class="invalid-feedback"> Zip code required.</div>
@@ -140,8 +159,8 @@
 
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="same-address">
-                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing
-                        address</label>
+                    <label class="custom-control-label"
+                           for="same-address">Shipping address is the same as my billing address</label>
                 </div>
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="save-info">
@@ -150,7 +169,7 @@
 
 
                 <hr class="mb-4">
-                <button class="btn btn-dark btn-lg btn-block" type="submit">Continue to checkout</button>
+                <button class="btn btn-dark btn-lg btn-block" value="buy Now" type="submit">Continue to checkout</button>
             </form>
         </div>
     </div>
@@ -158,6 +177,7 @@
 
     </footer>
 </div>
+</form>
 <!--Form end-->
 
 <!-- Footer Section -->

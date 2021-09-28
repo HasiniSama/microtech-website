@@ -1,10 +1,38 @@
+<?php
+include "db_conn.php";
+
+//get session variables
+session_start();
+$email = $_SESSION['email'];
+session_write_close();
+
+//get product id using incoming url
+$productId = $_GET['item'];
+
+//get that product details from database
+$sqlQuery = "SELECT * FROM items WHERE item_id = ".$productId;
+$result = $conn->query($sqlQuery);
+$product = $result->fetch_array();
+
+//get same category products for related products section
+$sqlQuery2 = "SELECT * FROM items WHERE category = '".$product['category']."' AND item_id != ".$productId;
+$result2 = $conn->query($sqlQuery2);
+
+if(isset($_REQUEST['submit'])){
+    $qty = $_REQUEST['num-product'];
+    $sqlQuery3 = "INSERT INTO cart values ('".$email."','".$productId."','".$qty."')";
+    $result3 = $conn->query($sqlQuery3);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title><?php echo $product['item_name'] ?></title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/utility.css">
 	<link rel="stylesheet" type="text/css" href="css/product.css">
@@ -15,7 +43,7 @@
 </head>
 <body>
     <!-- Header -->
-	<?php $page = 'product'; include 'include/header.php'; ?>
+    <?php $page = 'product'; include 'include/header.php'; ?>
 
     <!-- breadcrumb -->
     <div class="container">
@@ -26,195 +54,152 @@
             </a>
 
             <a href="shopping_page.php" class="stext-109 cl8 hov-cl1 trans-04">
-                Smartphones
+                <?php echo $product['category'] ?>
                 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
             </a>
 
             <span class="stext-109 cl4">
-                Samsung Galaxy Note20 5G
+                <?php echo $product['item_name'] ?>
             </span>
         </div>
     </div>
 
     <!-- Product Detail -->
-	<section class="sec-product-detail">
-		<div class="container single-product">
-			<div class="row">
-				<div class="col-md-6 col-lg-7 product-image">
-					<img src="images/products/13.0.webp" id = "ProductImg" alt="PRODUCT-IMG">
-					<div class="small-img-row">
-						<div class="small-img-col">
-							<img src="images/products/13.0.webp" alt="PRODUCT-IMG" class = "small-img">
-						</div>
-						<div class="small-img-col">
-							<img src="images/products/13.1.webp" alt="PRODUCT-IMG" class = "small-img">
-						</div>
-						<div class="small-img-col">
-							<img src="images/products/13.2.jpeg" alt="PRODUCT-IMG" class = "small-img">
-						</div>
-						<div class="small-img-col">
-							<img src="images/products/13.3.webp" alt="PRODUCT-IMG" class = "small-img">
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-5 p-b-30">
-					<div class="product-section">
-						<h4 class="js-name-detail">
-							Samsung Galaxy Note20 5G
-						</h4>
-						<span>
-							LKR. 174,990/-
+    <section class="sec-product-detail">
+        <div class="container single-product">
+            <div class="row">
+                <div class="col-md-6 col-lg-7 product-image">
+                    <img src="<?php echo $product['img_name1'] ?>" id = "ProductImg" alt="PRODUCT-IMG">
+                    <div class="small-img-row">
+                        <div class="small-img-col">
+                            <img src="<?php echo $product['img_name1'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="<?php echo $product['img_name2'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="<?php echo $product['img_name3'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="<?php echo $product['img_name4'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5 p-b-30">
+                    <div class="product-section">
+                        <h4 class="js-name-detail">
+                            <?php echo $product['item_name'] ?>
+                        </h4>
+                        <span>
+							LKR <?php echo $product['item_price'] ?>/-
 						</span>
-						<p>
-								It's anything but your average smartphone.
-								Introducing the Powerphone that forever changes how you work and play.
-						</p>
-						
-						<div class="product-details">
-							<div class="product-options">
-								<div class="product-color-header respon6">
-									Color
-								</div>
-								<div class="product-color-options">
-									<div class="color-options">
-										<select class="form-select" id = form-color aria-label=".form-select-sm example">
-											<option selected>Choose an option</option>
-											<option value="1">Black</option>
-											<option value="2">Grey</option>
-											<option value="3">White</option>
-										</select>	
-									</div>
-								</div>
-							</div>
+                        <p>
+                            <?php echo $product['long_description'] ?>
+                        </p>
 
-							<div class="product-options">
-								<div class="product-amount">
-									<div class="amount-counter">
-										<div class="btn-num-product-down">
-											<i class="fs-16 zmdi zmdi-minus"></i>
-										</div>
+                        <div class="product-details">
 
-										<input class="num-product" type="number" name="num-product" value="1">
 
-										<div class="btn-num-product-up">
-											<i class="fs-16 zmdi zmdi-plus"></i>
-										</div>
-									</div>
+                            <div class="product-options">
+                                <div class="product-amount">
+                                    <form id="form" name="form" method="post" action="<?php $_SERVER['PHP_SELF'];?>">
+                                        <div class="amount-counter">
+                                            <div class="btn-num-product-down">
+                                                <i class="fs-16 zmdi zmdi-minus"></i>
+                                            </div>
 
-									<button class="btn-add-cart js-addcart-detail">
-										Add to cart
-									</button>
-								</div>
-							</div>	
-						</div>
+                                            <input class="num-product" type="number" name="num-product" id="num-product" value="1">
 
-						<div class="addtional-options">
-							<div class="add-to-wishlist">
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail">
-									<i class="zmdi zmdi-favorite"></i>
-								</a>
-							</div>
-							<h6>Add to wishlist</h6>
-						</div>
-						
-					</div>
-				</div>
-			</div>
+                                            <div class="btn-num-product-up">
+                                                <i class="fs-16 zmdi zmdi-plus"></i>
+                                            </div>
+                                        </div>
 
-			<div class="product-desc-section">
-				<!-- Tab01 -->
-				<div class="tab01">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
-						</li>
+                                        <button class="btn-add-cart js-addcart-detail" name="submit" id="submit">
+                                            Add to cart
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
 
-						<li class="nav-item">
-							<a class="nav-link" data-toggle="tab" href="#information" role="tab">Additional information</a>
-						</li>
+                        <div class="addtional-options">
+                            <div class="add-to-wishlist">
+                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail">
+                                    <i class="zmdi zmdi-favorite"></i>
+                                </a>
+                            </div>
+                            <h6>Add to wishlist</h6>
+                        </div>
 
-						<li class="nav-item">
-							<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (1)</a>
-						</li>
-					</ul>
+                    </div>
+                </div>
+            </div>
 
-					<!-- Tab panes -->
-					<div class="tab-content">
+            <div class="product-desc-section">
+                <!-- Tab01 -->
+                <div class="tab01">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
+                        </li>
 
-						<div class="tab-pane fade show active" id="description" role="tabpanel">
-							<div class="how-pos2">
-								<p>
-								It's the ultimate gaming experience that goes where you go. It's a director-grade 8K video camera. It's a multitasking computer suite. It's anything but your average smartphone.
-								Introducing the Powerphone that forever changes how you work and play.
-								</p>
-							</div>
-						</div>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#information" role="tab">Additional information</a>
+                        </li>
 
-						<div class="tab-pane fade" id="information" role="tabpanel">
-							<div class="row">
-								<div class="col-sm-10 col-md-8 col-lg-6 adi-info">
-									<ul>
-										<li>
-											<span>Display</span>
-											<span>6.7</span>
-										</li>
-										<li>
-											<span>RAM</span>
-											<span>8 GB</span>
-										</li>
-										<li>
-											<span>Storage</span>
-											<span>128GB/256GB</span>
-										</li>
-										<li>
-											<span>Camera</span>
-											<span>64MP</span>
-										</li>
-										<li>
-											<span>Battery</span>
-											<span>4300 mAh</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (1)</a>
+                        </li>
+                    </ul>
 
-						<div class="tab-pane fade" id="reviews" role="tabpanel">
-							<div class="row">
-								<div class="col-sm-10 col-md-8 col-lg-6 review-tab">
-									<div class="review-section">
-										<div class="other-reviews-section">
-											<div class="other-review">
-												<div class="header">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+
+                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                            <div class="how-pos2">
+                                <p>
+                                    <?php echo $product['long_description'] ?>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="reviews" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-10 col-md-8 col-lg-6 review-tab">
+                                    <div class="review-section">
+                                        <div class="other-reviews-section">
+                                            <div class="other-review">
+                                                <div class="header">
 													<span id="reviewer">
 														Krishan Shamod
 													</span>
-													<span id="rating">
+                                                    <span id="rating">
 														<i class="zmdi zmdi-star"></i>
 														<i class="zmdi zmdi-star"></i>
 														<i class="zmdi zmdi-star"></i>
 														<i class="zmdi zmdi-star"></i>
 														<i class="zmdi zmdi-star-half"></i>
 													</span>
-												</div>
+                                                </div>
 
-												<p id="other-review">
-													Very phone.  Much style. Stylish pen is exceptionally good. 10/10 would recommend.
-												</p>
-											</div>
-										</div>
-										
-										<!-- Add a review -->
-										<form>
-											<h5>Add a review</h5>
-											<p> Your email address will not be published. Required fields are marked *</p>
+                                                <p id="other-review">
+                                                    Very phone.  Much style. Stylish pen is exceptionally good. 10/10 would recommend.
+                                                </p>
+                                            </div>
+                                        </div>
 
-											<div id="your-rating">
+                                        <!-- Add a review -->
+                                        <form>
+                                            <h5>Add a review</h5>
+                                            <p> Your email address will not be published. Required fields are marked *</p>
+
+                                            <div id="your-rating">
 												<span class="your-rating-header">
 													Your Rating
 												</span>
-												<span class="wrap-rating">
+                                                <span class="wrap-rating">
 													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
 													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
 													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
@@ -222,175 +207,93 @@
 													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
 													<input class="dis-none" type="number" name="rating">
 												</span>
-											</div>
+                                            </div>
 
-											<div class="row review-area">
-												<div class="col-12">
-													<label for="review">Your review</label>
-													<textarea id="review" name="review"></textarea>
-												</div>
+                                            <div class="row review-area">
+                                                <div class="col-12">
+                                                    <label for="review">Your review</label>
+                                                    <textarea id="review" name="review"></textarea>
+                                                </div>
 
-												<div class="col-sm-6 txt-box">
-													<label for="name">Name</label>
-													<input id="name" type="text" name="name">
-												</div>
+                                                <div class="col-sm-6 txt-box">
+                                                    <label for="name">Name</label>
+                                                    <input id="name" type="text" name="name">
+                                                </div>
 
-												<div class="col-sm-6 txt-box">
-													<label for="email">Email</label>
-													<input id="email" type="text" name="email">
-												</div>
-											</div>
+                                                <div class="col-sm-6 txt-box">
+                                                    <label for="email">Email</label>
+                                                    <input id="email" type="text" name="email">
+                                                </div>
+                                            </div>
 
-											<button class="btn-add-cart">
-												Submit
-											</button>
-										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                                            <button class="btn-add-cart">
+                                                Submit
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-	<!-- Related Products -->
-	<section class="relate-product-section">
-		<div class="container">
-			<div class="relate-product-header">
-				<h3 class="ltext-103 cl2 txt-center">
-					Related Products
-				</h3>
-			</div>
-			<div class="row isotope-grid">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-					<!-- Block -->
-					<div class="block2">
-						<div class="block2-pic hov-img1">
-							<img src="images/products/4.jpg" alt="IMG-PRODUCT">
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-								View
-							</a>
-						</div>
+    <!-- Related Products -->
+    <section class="relate-product-section">
+        <div class="container">
+            <div class="relate-product-header">
+                <h3 class="ltext-103 cl2 txt-center">
+                    Related Products
+                </h3>
+            </div>
+            <div class="row isotope-grid">
 
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-									OnePlus Nord CE 5G
-								</a>
+                <!-- Products -->
+                <?php $count = 1;
+                while($row = $result2->fetch_array()){
+                    if($count <=4 ){
+                        ?>
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+                            <div class="block2">
+                                <div class="block2-pic hov-img1">
+                                    <img src="<?php echo $row['img_name1'] ?>" alt="IMG-PRODUCT">
+                                    <a href="product_page.php?item=<?php echo $row['item_id'] ?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                                        View
+                                    </a>
+                                </div>
 
-								<span class="stext-105 cl3">
-									LKR 89,990.00
-								</span>
-							</div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+                                            <?php echo $row['item_name'] ?>
+                                        </a>
 
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+                                        <span class="stext-105 cl3">
+                                        LKR <?php echo $row['item_price'] ?>
+                                    </span>
+                                    </div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-					<!-- Block -->
-					<div class="block2">
-						<div class="block2-pic hov-img1">
-							<img src="images/products/1.jpg" alt="IMG-PRODUCT">
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-								View
-							</a>
-						</div>
+                                    <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a href="#" class="btn-addwish-b2 dis-block pos-relative">
+                                            <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+                                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                        $count++;
+                    }
+                } ?>
+            </div>
+        </div>
+    </section>
 
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-									iPhone 12 Pro
-								</a>
 
-								<span class="stext-105 cl3">
-									LKR 291,900.00
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-					<!-- Block -->
-					<div class="block2">
-						<div class="block2-pic hov-img1">
-							<img src="images/products/10.jpeg" alt="IMG-PRODUCT">
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-								View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-									Apple MacBook Air M1
-								</a>
-
-								<span class="stext-105 cl3">
-									LKR 249,900.00
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-					<!-- Block -->
-					<div class="block2">
-						<div class="block2-pic hov-img1">
-							<img src="images/products/11.jpg" alt="IMG-PRODUCT">
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-								View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-									MacBook Pro M1
-								</a>
-
-								<span class="stext-105 cl3">
-									LKR 377,000.00
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Footer Section -->
+    <!-- Footer Section -->
 	<?php include 'include/footer.php'; ?>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
