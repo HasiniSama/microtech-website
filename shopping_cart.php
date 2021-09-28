@@ -1,8 +1,3 @@
-<?php
-include "db_conn.php";
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +9,8 @@ include "db_conn.php";
     <link rel="stylesheet" type="text/css" href="css/utility.css">
     <link rel="stylesheet" type="text/css" href="css/shopping_cart.css">
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/
+                material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
@@ -28,8 +24,9 @@ include "db_conn.php";
 
 <?php $_SESSION['total'] = 0;
       $email=$_SESSION['email'];
-      $sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail='".$email."' and cart.itemid=items.item_id;";
-       $result = $conn->query($sql);
+      $_SESSION['cart_sql'] = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price,items.long_description FROM `cart`,`items`
+              WHERE cart.usermail='jayawardene.pasandevin@gmail.com' and cart.itemid=items.item_id;";
+      $result = $conn->query($_SESSION['cart_sql']);
 ?>
 
 <!-- breadcrumb -->
@@ -87,14 +84,16 @@ include "db_conn.php";
                                             <i class="fs-16 zmdi zmdi-minus"></i>
                                         </div>
 
-                                        <input class="num-product" type="number" name="num-product" value=<?php echo $row['no_of_items']?>>
+                                        <input class="num-product" type="number" name="num-product"
+                                               value=<?php echo $row['no_of_items']?>>
 
                                         <div class="btn-num-product-up">
                                             <i class="fs-16 zmdi zmdi-plus"></i>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price"><?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";?></td>
+                                <td class="cart__price"><?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";
+                                    ?></td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>
                         <?php $_SESSION['total'] += $row['item_price']*$row['no_of_items'];
@@ -146,10 +145,18 @@ include "db_conn.php";
 <?php include 'include/footer.php'; ?>
 
     <!--Footer section end-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
     <script src="js/app.js"></script>	
     <script src="js/product.js"></script>
