@@ -84,6 +84,44 @@
   color: #6c7ae0;
 }
 
+#account{
+  width:200px; 
+  text-align: center;
+}
+
+/*[  Drop down Menu ]*/
+.drop-down-menu{
+  position: relative;
+  display: inline-block;
+}
+
+.drop-down-menu a:visited{
+  color: #6c7ae0;
+}
+
+.dropdown-menu img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dropdown-menu h6{
+  text-align: center;
+  font-family: Poppins-Regular;
+}
+
+.dropdown-menu p{
+  text-align: center;
+  font-family: Poppins-Regular;
+  font-size: 12px;
+  color: #717fe0;
+}
+
+.dropdown-menu a{
+  font-size: 14px;
+}
+
 /*[ Menu ]*/
 .wrap-menu {
   position: fixed;
@@ -156,7 +194,7 @@
   color: #6c7ae0;
 }
 
-.main-menu > li.active-menu > a {
+.main-menu > li.active > a {
   color: #6c7ae0;
 }
 

@@ -25,30 +25,44 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $pass = md5($pass);
 
         
-		$sql = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
+		$sql_user = "SELECT * FROM users WHERE email='$email' AND password='$pass'";
+		$sql_admin = "SELECT * FROM admins WHERE email='$email' AND passwd='$pass'";
 
-		$result = mysqli_query($conn, $sql);
+		$result_user = mysqli_query($conn, $sql_user);
+		$result_admin = mysqli_query($conn, $sql_admin);
 
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
+        if (mysqli_num_rows($result_user) === 1) {
+            $row = mysqli_fetch_assoc($result_user);
             if ($row['email'] === $email && $row['password'] === $pass) {
-				if($row['status'] === '0' ){
-					header("Location: signin_page.php?error=Please verify your email");
-		        	exit();
-				}else{
-					$_SESSION['email'] = $row['email'];
-					$_SESSION['fname'] = $row['f_name'];
-					$_SESSION['lname'] = $row['l_name'];
+                if ($row['status'] === '0') {
+                    header("Location: signin_page.php?error=Please verify your email");
+                    exit();
+                } else {
+                    $_SESSION['email'] = $row['email'];
+                    $_SESSION['fname'] = $row['f_name'];
+                    $_SESSION['lname'] = $row['l_name'];
 
-					header("Location: index.php");
-					exit();
-				}
-            	
-            }else{
-				header("Location: signin_page.php?error=Incorect email or password");
-		        exit();
-			}
+                    header("Location: index.php");
+                    exit();
+                }
+            } else {
+                header("Location: signin_page.php?error=Incorect email or password");
+                exit();
+            }
 
+        }elseif(mysqli_num_rows($result_admin) === 1) {
+            $row = mysqli_fetch_assoc($result_admin);
+            if ($row['email'] === $email && $row['passwd'] === $pass) {
+                    $_SESSION['admin_email'] = $row['email'];
+                    $_SESSION['admin_fname'] = $row['f_name'];
+                    $_SESSION['admin_lname'] = $row['l_name'];
+
+                    header("Location: index.php");
+                    exit();
+            } else {
+                header("Location: signin_page.php?error=Incorect email or password");
+                exit();
+            }	
 		}else{
 			header("Location: signin_page.php?error=Incorect email or password");
 	        exit();
