@@ -1,3 +1,73 @@
+<?php
+session_start();
+include "db_conn.php";
+
+//get search results
+if(isset($_POST['searchSubmit'])) {
+    $valueToSearch = $_POST['valueToSearch'];
+    $sqlQuery = "SELECT * FROM items WHERE item_name LIKE '%".$valueToSearch."%'";
+} //get both category and brand filtering results
+else if(isset($_GET['category']) && isset($_GET['brand'])) {
+    $category = $_GET['category'];
+    $brand = $_GET['brand'];
+    if($_GET['category'] == "" && $_GET['brand'] == ""){
+        $sqlQuery = "SELECT * FROM items WHERE category LIKE '%' AND brand LIKE '%'";
+    }
+    else if($_GET['category'] == ""){
+        $sqlQuery = "SELECT * FROM items WHERE category LIKE '%' AND brand LIKE '".$brand."'";
+    }
+    else if($_GET['brand'] == ""){
+        $sqlQuery = "SELECT * FROM items WHERE category LIKE '".$category."' AND brand LIKE '%'";
+    }
+    else {
+        $sqlQuery = "SELECT * FROM items WHERE category LIKE '".$category."' AND brand LIKE '".$brand."'";
+    }
+} // when no one set
+else {
+    $category = "";
+    $brand = "";
+    $sqlQuery = "SELECT * FROM `items`";
+}
+
+
+
+//get page number
+if(isset($_REQUEST['page'])){
+    $pageNo = $_REQUEST['page'];
+}
+else{
+    $pageNo = 1;
+}
+
+////for testings
+//$pageNo = 3;
+
+$recPerPage = 12;
+
+//calculate next page starting number
+if($pageNo == 1){
+    $pageStart = 0;
+}
+else{
+    $pageStart = ($pageNo-1) * $recPerPage;
+}
+
+//get all page items
+$result1 = $conn->query($sqlQuery);
+
+//Getting number of items
+$numberOfItems = $result1->num_rows;
+
+// total pages
+$totalPages = ceil ($numberOfItems / $recPerPage);
+
+//get each page items
+$sqlQuery2 = $sqlQuery."LIMIT ".$pageStart.",".$recPerPage;
+$result2 = $conn->query($sqlQuery2);
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,7 +75,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Shop</title>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/utility.css">
@@ -136,9 +206,9 @@
             <div class="col-lg-3">
                 <div class="shop_sidebar">
                     <div class="shop_sidebar_search">
-                        <form action="#">
-                            <input type="text" placeholder="Search...">
-                            <button type="submit"><span class="icon_search"></span></button>
+                        <form method="post" action="<?php $_SERVER['PHP_SELF'];?>">
+                            <input type="text" name="valueToSearch" id="valueToSearch" placeholder="Search...">
+                            <button type="submit" name="searchSubmit" id="searchSubmit"><span class="icon_search"></span></button>
                         </form>
                     </div>
                     <div class="shop_sidebar_accordion">
@@ -147,12 +217,13 @@
                             <div class="card-body">
                                 <div class="shop_sidebar_filter">
                                     <ul>
-                                        <li><a href="#">Smart Phones</a></li>
-                                        <li><a href="#">Smart Watches</a></li>
-                                        <li><a href="#">Tablets</a></li>
-                                        <li><a href="#">Laptops</a></li>
-                                        <li><a href="#">Audio</a></li>
-                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="shopping_page.php?category=&brand=<?php echo $brand ?>">All categories</a></li>
+                                        <li><a href="shopping_page.php?category=smartphone&brand=<?php echo $brand ?>">Smart Phones</a></li>
+                                        <li><a href="shopping_page.php?category=smartwatch&brand=<?php echo $brand ?>">Smart Watches</a></li>
+                                        <li><a href="shopping_page.php?category=tablet&brand=<?php echo $brand ?>">Tablets</a></li>
+                                        <li><a href="shopping_page.php?category=laptop&brand=<?php echo $brand ?>">Laptops</a></li>
+                                        <li><a href="shopping_page.php?category=audio&brand=<?php echo $brand ?>">Audio</a></li>
+                                        <li><a href="shopping_page.php?category=accessories&brand=<?php echo $brand ?>">Accessories</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -162,12 +233,14 @@
                             <div class="card-body">
                                 <div class="shop_sidebar_filter">
                                     <ul>
-                                        <li><a href="#">Apple</a></li>
-                                        <li><a href="#">Samsung</a></li>
-                                        <li><a href="#">OnePlus</a></li>
-                                        <li><a href="#">Huawei</a></li>
-                                        <li><a href="#">Xiaomi</a></li>
-                                        <li><a href="#">Asus</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=">All brands</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=apple">Apple</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=samsung">Samsung</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=oneplus">OnePlus</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=huawei">Huawei</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=sony">Sony</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=xiaomi">Xiaomi</a></li>
+                                        <li><a href="shopping_page.php?category=<?php echo $category ?>&brand=asus">Asus</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -177,161 +250,33 @@
             </div>
             <div class="col-lg-9">
                 <div class="row">
+
                     <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/1.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>iPhone 12 Pro</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 291,900.00</h6>
+                    <?php while($row = $result2->fetch_array()){ ?>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product_item">
+                                <div class="product_item_pic set-bg" data-setbg="<?php echo $row['img_name1'] ?>">
+                                </div>
+                                <div class="product_item_text">
+                                    <h5><?php echo $row['item_name'] ?></h5>
+                                    <a href="product_page.php?item=<?php echo $row['item_id'] ?>"> View Item </a>
+                                    <h6>LKR <?php echo $row['item_price'] ?></h6>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/2.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>OnePlus 9 Pro</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 199,900.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/3.png">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>iPad Pro 11 </h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 235,000.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/4.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>OnePlus Nord CE 5G </h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 89,990.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/5.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>Samsung Galaxy S21 Plus </h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 224,900.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/6.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>AirPods Max </h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 139,900.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/7.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>OnePlus Bullets Wireless Z</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 12,990.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/8.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>Apple Watch Series 4</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 79,900.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/9.png">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>Amazfit Pace</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 18,900.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/10.jpeg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>Apple MacBook Air M1</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 249,900.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/11.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>MacBook Pro M1</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 377,000.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <!--------------Products------------------->
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product_item">
-                            <div class="product_item_pic set-bg" data-setbg="images/products/12.jpg">
-                            </div>
-                            <div class="product_item_text">
-                                <h5>Bose NC Headphones 700</h5>
-                                <a href="#"> View Item </a>
-                                <h6>LKR 67,900.00</h6>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
 
                 <!----------Page count----------->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product_pagination">
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">21</a>
+                            <?php if($totalPages > 1){
+                                for ( $k =1 ; $k <=$totalPages;$k++){ ?>
+                                    <a class="<?php if($k==$pageNo){ echo "active"; } ?>"
+                                       href="shopping_page.php?page=<?php echo $k ?>&category=<?php echo $category ?>&brand=<?php echo $brand ?>"><?php echo $k ?></a>
+                                <?php   }
+                            } ?>
                         </div>
                     </div>
                 </div>
