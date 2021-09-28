@@ -1,3 +1,13 @@
+<?php
+session_start();
+include "db_conn.php";
+
+$_SESSION['total'] = 0;
+
+$sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail=.$_SESSION['email']. and cart.itemid=items.item_id;";
+$result = $conn->query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,32 +66,37 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="product__cart__item">
-                                <div class="product__cart__item__pic">
-                                    <img src="images/products/13.0.webp" alt="">
-                                </div>
-                                <div class="product__cart__item__text">
-                                    <h6>Samsung Galaxy Note20 5G</h6>
-                                    <h5>LKR. 174,990 </h5>
-                                </div>
-                            </td>
-                            <td class="quantity__item">
-                                <div class="amount-counter">
-                                    <div class="btn-num-product-down">
-                                        <i class="fs-16 zmdi zmdi-minus"></i>
+                        <!--                        Iterate through cart - begin-->
+                        <?php while ($row = $result->fetch_array()) { ?>
+                            <tr>
+                                <td class="product__cart__item">
+                                    <div class="product__cart__item__pic">
+                                        <img <?php echo "src='images/products/".$row['img_name1']."'"; ?>  alt="">
                                     </div>
-
-                                    <input class="num-product" type="number" name="num-product" value="1">
-
-                                    <div class="btn-num-product-up">
-                                        <i class="fs-16 zmdi zmdi-plus"></i>
+                                    <div class="product__cart__item__text">
+                                        <h6><?php echo $row['item_name']; ?></h6>
+                                        <h5><?php echo "LKR. ".$row['item_price']; ?></h5>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="cart__price">LKR. 174,990/-</td>
-                            <td class="cart__close"><i class="fa fa-close"></i></td>
-                        </tr>
+                                </td>
+                                <td class="quantity__item">
+                                    <div class="amount-counter">
+                                        <div class="btn-num-product-down">
+                                            <i class="fs-16 zmdi zmdi-minus"></i>
+                                        </div>
+
+                                        <input class="num-product" type="number" name="num-product" value=<?php echo $row['no_of_items']?>>
+
+                                        <div class="btn-num-product-up">
+                                            <i class="fs-16 zmdi zmdi-plus"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart__price"><?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";?></td>
+                                <td class="cart__close"><i class="fa fa-close"></i></td>
+                            </tr>
+                        <?php $_SESSION['total'] += $row['item_price']*$row['no_of_items'];
+                        } ?>
+                        <!--                        iterate through cart - end-->
 
                         </tbody>
                     </table>
@@ -112,8 +127,8 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>LKR. 174,990/-</span></li>
-                        <li>Total <span>LKR. 174,990/-</span></li>
+
+                        <li>Total <span><?php echo "LKR ".$_SESSION['total'] ?></span></li>
                     </ul>
                     <a href="checkout.php" class="primary-btn"><span>Proceed to checkout</span></a>
                 </div>
