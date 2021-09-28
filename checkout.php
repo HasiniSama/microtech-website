@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/checkout.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/
+          material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
@@ -18,7 +19,94 @@
 <body>
 
 <!-- Header -->
-<?php include 'include/header.php'; ?>
+<header>
+    <div class="container-menu">
+        <!-- Topbar -->
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="left-top-bar">
+                    <?php echo "Island Wide Delivary" ?>
+                </div>
+
+                <div class="right-top-bar flex-w h-full">
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "My Account" ?>
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "Help & FAQs" ?>
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "EN" ?>
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        <?php echo "LKR" ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu bar -->
+        <div class="wrap-menu">
+            <nav class="limiter-menu container">
+
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="IMG-LOGO">
+                </a>
+
+                <!-- Menu -->
+                <div class="menu">
+                    <ul class="main-menu">
+                        <li class="active-menu">
+                            <a href="index.php">Home</a>
+                        </li>
+
+                        <li>
+                            <a href="shopping_page.php">Shop</a>
+                        </li>
+
+                        <li class="label1" data-label1="hot">
+                            <a href="shoping-cart.php">Features</a>
+                        </li>
+
+                        <li>
+                            <a href="blog.php">Blog</a>
+                        </li>
+
+                        <li>
+                            <a href="about.php">About</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.php">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Icon header -->
+                <div class="wrap-icon-header flex-w flex-r-m">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                        <i class="zmdi zmdi-search"></i>
+
+                    </div>
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="2">
+                        <a href="shopping_cart.php">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+
+                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                       data-notify="0">
+                        <i class="zmdi zmdi-favorite-outline"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!--Header end-->
 
 <!-- Breadcrumb -->
 <div class="container">
@@ -37,6 +125,25 @@
 
 
 <!--Form begin-->
+<form method="post" action="https://sandbox.payhere.lk/pay/checkout">
+    <input type="hidden" name="merchant_id" value="1218734">
+    <input type="hidden" name="return_url" value="http://localhost:63342/microtech-website/index.php">
+    <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+    <input type="hidden" name="notify_url" value="http://sample.com/notify">
+
+
+
+    <input type="hidden" name="order_id" value="ItemNo12345">
+    <input type="hidden" name="items" value="Door bell wireless"><br>
+    <input type="hidden" name="currency" value="LKR">
+    <input type="hidden" name="amount" value="1000">
+
+
+
+
+
+
+
 <div class="container container-form">
 
     <div class="row">
@@ -82,29 +189,38 @@
 
         </div>
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing address</h4>
+            <h4 class="mb-3">Billing</h4>
             <form class="needs-validation hoverclass" novalidate="">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                        <input type="text" class="form-control" id="firstName" name="first_name" placeholder="" value=""
+                               required="">
                         <div class="invalid-feedback"> Valid first name is required.</div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <input type="text" class="form-control" id="lastName" name="last_name" placeholder="" value=""
+                               required="">
                         <div class="invalid-feedback"> Valid last name is required.</div>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Required)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                     <div class="invalid-feedback"> Please enter a valid email address for shipping updates.</div>
                 </div>
                 <div class="mb-3">
+                    <label for="phone_no">Phone no <span class="text-muted">(Required)</span></label>
+                    <input type="tel" class="form-control" placeholder="provide a valid Phone no" name="phone"
+                           pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}">
+                    <div class="invalid-feedback"> Please enter a valid Phone no</div>
+                </div>
+                <div class="mb-3">
                     <label for="address">Street adress 1</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                    <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St"
+                           required="">
                     <div class="invalid-feedback"> Please enter your shipping address.</div>
                 </div>
                 <div class="mb-3">
@@ -114,7 +230,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="city">City</label>
-                        <select class="custom-select d-block w-100" id="city" required="">
+                        <select class="custom-select d-block w-100" id="city" name="city" required="">
                             <option value="">Choose...</option>
                             <option>Colombo</option>
                             <option>Kaluthara</option>
@@ -123,7 +239,7 @@
                     </div>
                     <div class="col-md-5 mb-3">
                         <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required="">
+                        <select class="custom-select d-block w-100" id="country" name="country" required="">
                             <option value="">Choose...</option>
                             <option>Sri Lanka</option>
                             <option>United States</option>
@@ -150,7 +266,7 @@
 
 
                 <hr class="mb-4">
-                <button class="btn btn-dark btn-lg btn-block" type="submit">Continue to checkout</button>
+                <button class="btn btn-dark btn-lg btn-block" value="buy Now" type="submit">Continue to checkout</button>
             </form>
         </div>
     </div>
@@ -158,10 +274,59 @@
 
     </footer>
 </div>
+</form>
 <!--Form end-->
 
-<!-- Footer Section -->
-<?php include 'include/footer.php'; ?>
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer_about">
+                    <div class="footer_logo">
+                        <a href="#"><img src="images/logo2.png" alt=""></a>
+                    </div>
+                    <p>Passion shouldn't cost a fortune. <br> On MiCROTECH, shop online for better deals on Electronic
+                        products.</p>
+                    <a href="#"><img src="images/payment_icons.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="footer_widget">
+                    <h6>Shopping</h6>
+                    <ul>
+                        <li><a href="#">Home Page</a></li>
+                        <li><a href="#">Browse Products</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="footer_widget">
+                    <h6>Users</h6>
+                    <ul>
+                        <li><a href="#">Admin Login</a></li>
+                        <li><a href="#">Buyers Login</a></li>
+                        <li><a href="#">Registration</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                <div class="footer_widget">
+                    <h6>NewsLetter</h6>
+                    <div class="footer_newsletter">
+                        <p>Be the first to know about new arrivals, sales & promos!</p>
+                        <form action="#">
+                            <input type="text" placeholder="Your email">
+                            <button type="submit"><span class="icon_mail_alt"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--Footer end-->
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
