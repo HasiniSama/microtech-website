@@ -1,3 +1,49 @@
+<?php
+include "db_conn.php";
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'smartphone'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $smartphone_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'smartwatch'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $smartwatch_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'tablet'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $tablet_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'laptop'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $laptop_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'audio'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $audio_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'accessories'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $accessories_revenue = mysqli_fetch_assoc($result_cat);
+
+    
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'apple'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $apple_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'samsung'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $samsung_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'huawei'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $huawei_revenue = mysqli_fetch_assoc($result_cat);
+
+    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'sony'))";
+    $result_cat = mysqli_query($conn, $sql_cat);
+    $sony_revenue = mysqli_fetch_assoc($result_cat);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,6 +171,20 @@
                                     </div>
                                 </div>          
 						    </div>
+                            <div class="row pie-chart-content">
+                                <div class="col-md-6">
+                                    <div class="main-box">
+                                        <h3>Total Sales by Catagory</h3>
+                                        <canvas id="mychart1"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="main-box">
+                                        <h3>Total Sales by Brand</h3>
+                                        <canvas id="mychart2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 						<div class="tab-pane fade" id="orders" role="tabpanel">
 							<!-- /.row -->
@@ -352,7 +412,8 @@
 
 <!-- Footer Section -->
 <?php include 'include/footer.php'; ?>
-
+      
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
@@ -368,6 +429,22 @@
 <script src="https://kit.fontawesome.com/bfc2cbc6c6.js" crossorigin="anonymous"></script>
        
 <script src="js/app.js"></script>
+
+
+<script>
+        const Smart_Phones = <?php echo $smartphone_revenue['total'] ?>;
+        const Smart_Watches = <?php echo $smartwatch_revenue['total'] ?>;
+        const Tablets = <?php echo $tablet_revenue['total'] ?>;
+        const Laptops = <?php echo $laptop_revenue['total'] ?>;
+        const Audio = <?php echo $audio_revenue['total'] ?>;
+        const Accessories = <?php echo $accessories_revenue['total'] ?>;
+        
+        const Apple = <?php echo $apple_revenue['total'] ?>;
+        const Samsung = <?php echo $samsung_revenue['total'] ?>;
+        const Huawei = <?php echo $huawei_revenue['total'] ?>;
+        const Sony = <?php echo $sony_revenue['total'] ?>;
+</script>
+
 <script src="js/admin.js"></script>
 
 </body>

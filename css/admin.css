@@ -264,3 +264,22 @@ table{
     z-index: 0;
     margin: 0px !important;
 }
+
+.main-box{
+    background-color: #e6e6e6;
+    height: 100%;
+    border-radius: 30px;
+
+}
+
+.main-box h3{
+    color: #717fe0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 20px;
+    padding-top: 20px;
+    color: #717fe0;
+    font-family:Poppins-SemiBold ;
+    
+}

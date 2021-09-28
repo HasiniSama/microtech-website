@@ -1,3 +1,4 @@
+/* [ Filter ] */
 function myFunction() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
@@ -17,6 +18,7 @@ function myFunction() {
     }
 }
 
+/* [ Sort ] */
 function sortTable() {
     var table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById("myTable");
@@ -41,3 +43,46 @@ function sortTable() {
       }
     }
 }
+
+/* [ Pie Charts ] */
+
+const ctx1 = document.getElementById('mychart1').getContext('2d');
+let mychart1 = new Chart(ctx1,{
+
+    type:'pie',
+    data: {
+
+        labels: ['Smart Phones','Smart Watches', 'Tablets', 'Laptops', 'Audio', 'Accessories'],
+        datasets : [
+            {
+                label:'# of votes',
+                data: [Smart_Phones,Smart_Watches,Tablets,Laptops,Audio,Accessories],
+                backgroundColor:['#717fe0','#7180e0cd','#7180e092','#7180e068','#7180e043','#7180e01d'],
+                borderWidth:1
+            }
+        ]
+    }
+})
+
+const ctx2 = document.getElementById('mychart2').getContext('2d');
+let mychart2 = new Chart(ctx2,{
+
+    type:'pie',
+    data: {
+
+        labels: ['Apple', 'Samsung', 'Huawei', 'Sony'],
+        datasets : [
+            {
+                label:'# of votes',
+                data: [Apple,Samsung,Huawei,Sony],
+                backgroundColor:['#717fe0','#7180e0cd','#7180e092','#7180e068'],
+                borderWidth:1
+            }
+        ]
+    }
+})
+
+
+
+
+
