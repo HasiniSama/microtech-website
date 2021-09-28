@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 28, 2021 at 07:45 PM
+-- Generation Time: Sep 28, 2021 at 11:33 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -131,7 +131,9 @@ INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
 ('001', '01', 1),
 ('002', '03', 1),
 ('003', '04', 1),
-('004', '07', 2);
+('004', '07', 2),
+('005', '06', 1),
+('006', '05', 1);
 
 -- --------------------------------------------------------
 
@@ -154,7 +156,9 @@ INSERT INTO `orders` (`order_id`, `user_email`, `revenue`, `order_time`) VALUES
 ('001', 'hasinisama99@gmail.com', 174990, '2021-09-28 17:41:43'),
 ('002', 'hasinisama99@gmail.com', 52199, '2021-09-28 17:41:43'),
 ('003', 'hasinisama99@gmail.com', 74999, '2021-09-28 17:41:43'),
-('004', 'hasinisama99@gmail.com', 14380, '2021-09-28 17:41:43');
+('004', 'hasinisama99@gmail.com', 14380, '2021-09-28 17:41:43'),
+('005', 'hasinisama99@gmail.com', 275999, '2021-09-28 20:57:46'),
+('006', 'hasinisama99@gmail.com', 255000, '2021-09-28 20:57:46');
 
 -- --------------------------------------------------------
 
@@ -210,7 +214,7 @@ ALTER TABLE `admins`
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`usermail`);
+  ADD PRIMARY KEY (`usermail`,`itemid`);
 
 --
 -- Indexes for table `items`

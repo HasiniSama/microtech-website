@@ -1,3 +1,12 @@
+<?php
+include "db_conn.php";
+
+//get newly added items from database
+$sqlQuery = "SELECT * FROM items ORDER BY item_id DESC LIMIT 4";
+$result = $conn->query($sqlQuery);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +65,7 @@
                 <div class="block1 hov-img0">
                     <img src="images/banner-01.jpg" alt="IMG-BANNER">
 
-                    <a href="product.php"
+                    <a href="shopping_page.php?category=smartphone&brand="
                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
@@ -81,7 +90,7 @@
                 <div class="block1 hov-img0">
                     <img src="images/banner-02.jpeg" alt="IMG-BANNER">
 
-                    <a href="product.php"
+                    <a href="shopping_page.php?category=laptop&brand="
                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
@@ -106,11 +115,11 @@
                 <div class="block1 hov-img0">
                     <img src="images/banner-03.jpg" alt="IMG-BANNER">
 
-                    <a href="product.php"
+                    <a href="shopping_page.php?category=audio&brand="
                        class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Accessories
+									Audio
 								</span>
 
                             <span class="block1-info stext-102 trans-04">
@@ -144,169 +153,68 @@
 
         <div class="flex-w flex-c-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10 align">
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5 ">
                     All Products
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+                <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5">
                     Smartphones
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+                <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5">
                     Laptops
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+                <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5">
                     Tablets
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+                <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5">
                     Audio
                 </button>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+                <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5">
                     Smart Watches
                 </button>
             </div>
         </div>
 
         <div class="row isotope-grid">
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-                <!-- Block -->
-                <div class="block2">
-                    <div class="block2-pic hov-img1">
-                        <img src="images/products/4.jpg" alt="IMG-PRODUCT">
-                        <a href="#"
-                           class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                            View
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-                                OnePlus Nord CE 5G
-                            </a>
-
-                            <span class="stext-105 cl3">
-									LKR 89,990.00
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative">
-                                <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                     alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png"
-                                     alt="ICON">
+            <!-- Newly added products -->
+            <?php while($row = $result->fetch_array()){ ?>
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+                    <div class="block2">
+                        <div class="block2-pic hov-img1">
+                            <img src="<?php echo $row['img_name1'] ?>" alt="IMG-PRODUCT">
+                            <a href="product_page.php?item=<?php echo $row['item_id'] ?>"
+                               class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                                View
                             </a>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-                <!-- Block -->
-                <div class="block2">
-                    <div class="block2-pic hov-img1">
-                        <img src="images/products/1.jpg" alt="IMG-PRODUCT">
-                        <a href="#"
-                           class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                            View
-                        </a>
-                    </div>
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="product_page.php?item=<?php echo $row['item_id'] ?>" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+                                    <?php echo $row['item_name'] ?>
+                                </a>
 
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-                                iPhone 12 Pro
-                            </a>
+                                <span class="stext-105 cl3">
+                                        LKR <?php echo $row['item_price'] ?>
+                                    </span>
+                            </div>
 
-                            <span class="stext-105 cl3">
-									LKR 291,900.00
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative">
-                                <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                     alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png"
-                                     alt="ICON">
-                            </a>
+                            <div class="block2-txt-child2 flex-r p-t-3">
+                                <a href="#" class="btn-addwish-b2 dis-block pos-relative">
+                                    <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
+                                         alt="ICON">
+                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png"
+                                         alt="ICON">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-                <!-- Block -->
-                <div class="block2">
-                    <div class="block2-pic hov-img1">
-                        <img src="images/products/10.jpeg" alt="IMG-PRODUCT">
-                        <a href="#"
-                           class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                            View
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-                                Apple MacBook Air M1
-                            </a>
-
-                            <span class="stext-105 cl3">
-									LKR 249,900.00
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative">
-                                <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                     alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png"
-                                     alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
-                <!-- Block -->
-                <div class="block2">
-                    <div class="block2-pic hov-img1">
-                        <img src="images/products/11.jpg" alt="IMG-PRODUCT">
-                        <a href="#"
-                           class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
-                            View
-                        </a>
-                    </div>
-
-                    <div class="block2-txt flex-w flex-t p-t-14">
-                        <div class="block2-txt-child1 flex-col-l ">
-                            <a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
-                                MacBook Pro M1
-                            </a>
-
-                            <span class="stext-105 cl3">
-									LKR 377,000.00
-								</span>
-                        </div>
-
-                        <div class="block2-txt-child2 flex-r p-t-3">
-                            <a href="#" class="btn-addwish-b2 dis-block pos-relative">
-                                <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png"
-                                     alt="ICON">
-                                <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png"
-                                     alt="ICON">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
     </div>
 </section>
@@ -317,7 +225,7 @@
         <div class="row flex-t">
             <div class="col-lg-6">
                 <div class="deal-pic">
-                    <img src="images/banner-04.jpg" alt="DEAL-OF-THE-WEEK">
+                    <img src="images/products/4.0.jpg" alt="DEAL-OF-THE-WEEK">
                 </div>
             </div>
             <div class="col-lg-6 p-t-80">
@@ -349,7 +257,7 @@
                         </li>
                     </ul>
                     <div class="p-t-23">
-                        <a href="#" class="deal-btn flex-c-m stext-103 cl0 size-102 bg1 bor2 hov-btn1 trans-04">Shop
+                        <a href="product_page.php?item=04" class="deal-btn flex-c-m stext-103 cl0 size-102 bg1 bor2 hov-btn1 trans-04">Shop
                             now</a>
                     </div>
                 </div>
@@ -390,7 +298,7 @@
 
                     <div class="block2-txt flex-w flex-t p-t-14">
                         <div class="block2-txt-child1 flex-col-l ">
-                            <a href="view.php" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
+                            <a href="#" class="stext-104 cl4 hov-cl1 trans-04 p-b-6">
                                 M1 MacBook Air review
                             </a>
                         </div>

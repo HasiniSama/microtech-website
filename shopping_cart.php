@@ -1,13 +1,3 @@
-<?php
-session_start();
-include "db_conn.php";
-
-$_SESSION['total'] = 0;
-$email = $_SESSION['email'];
-$sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail=$email and cart.itemid=items.item_id;";
-$result = $conn->query($sql);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +24,23 @@ $result = $conn->query($sql);
 
 <?php $_SESSION['total'] = 0;
       $email=$_SESSION['email'];
-      $_SESSION['cart_sql'] = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price,items.long_description FROM `cart`,`items`
-              WHERE cart.usermail='jayawardene.pasandevin@gmail.com' and cart.itemid=items.item_id;";
+
+      $_SESSION['cart_sql'] = "SELECT cart.itemid,
+                                      cart.no_of_items,
+                                      items.item_name,
+                                      items.img_name1,
+                                      items.item_price,
+                                      items.long_description 
+                               FROM `cart`,
+                                    `items`
+                               WHERE cart.usermail='".$email."' 
+                               and cart.itemid=items.item_id;";
+
       $result = $conn->query($_SESSION['cart_sql']);
+
+
+
+
 ?>
 
 <!-- breadcrumb -->
@@ -74,14 +78,12 @@ $result = $conn->query($sql);
                         </tr>
                         </thead>
                         <tbody>
-                        <!--                        Iterate through cart - begin-->
+                        <!--Iterate through cart - begin-->
                         <?php while ($row = $result->fetch_array()) { ?>
                             <tr>
                                 <td class="product__cart__item">
                                     <div class="product__cart__item__pic">
                                         <img  <?php echo "src = '".$row['img_name1']."'";  ?>  alt="">
-
-
                                     </div>
                                     <div class="product__cart__item__text">
                                         <h6><?php echo $row['item_name']; ?></h6>
@@ -102,13 +104,14 @@ $result = $conn->query($sql);
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price"><?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";
-                                    ?></td>
+                                <td class="cart__price">
+                                    <?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";?>
+                                </td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>
                         <?php $_SESSION['total'] += $row['item_price']*$row['no_of_items'];
                         } ?>
-                        <!--                        iterate through cart - end-->
+                        <!--iterate through cart - end-->
 
                         </tbody>
                     </table>
