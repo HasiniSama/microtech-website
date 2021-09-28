@@ -1,3 +1,20 @@
+<?php
+include "db_conn.php";
+
+//get order details for orders table
+$ordersSqlQuery = "SELECT * FROM orders";
+$orders = $conn->query($ordersSqlQuery);
+
+//get product details for products table
+$productsSqlQuery = "SELECT * FROM items";
+$products = $conn->query($productsSqlQuery);
+
+//get users details for users table
+$usersSqlQuery = "SELECT * FROM users,address WHERE email=usermail";
+$users = $conn->query($usersSqlQuery);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,70 +166,21 @@
                                             <table class="table table-head-fixed table-hover">
                                             <thead>
                                                 <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>Order ID</th>
+                                                <th>User Email</th>
+                                                <th>Date and Time</th>
+                                                <th>Revenue</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            <?php while($row = $orders->fetch_array()){ ?>
                                                 <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td><?php echo $row['order_id'] ?></td>
+                                                <td><?php echo $row['user_email'] ?></td>
+                                                <td><?php echo $row['order_time'] ?></td>
+                                                <td><?php echo $row['revenue'] ?></td>
                                                 </tr>
-                                                <tr>
-                                                <td>219</td>
-                                                <td>Alexander Pierce</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-warning">Pending</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                                </tr>
-                                                <tr>
-                                                <td>657</td>
-                                                <td>Bob Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-primary">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                                </tr>
-                                                <tr>
-                                                <td>175</td>
-                                                <td>Mike Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-danger">Denied</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                                </tr>
-                                                <tr>
-                                                <td>134</td>
-                                                <td>Jim Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                                </tr>
-                                                <tr>
-                                                <td>494</td>
-                                                <td>Victoria Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-warning">Pending</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                                </tr>
-                                                <tr>
-                                                <td>832</td>
-                                                <td>Michael Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-primary">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                                </tr>
-                                                <tr>
-                                                <td>982</td>
-                                                <td>Rocky Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-danger">Denied</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                                </tr>
+                                            <?php } ?>
                                             </tbody>
                                             </table>
                                         </div>
@@ -257,28 +225,22 @@
                                             <thead>
                                                 <tr>
                                                 <th style="width:20px !important">ID</th>
-                                                <th style="width:150px !important">Item Name</th>
-                                                <th>Category</th>
-                                                <th>Brand</th>
-                                                <th>Item Price</th>
+                                                <th>Item Name</th>
+                                                <th style="width:40px !important">Category</th>
+                                                <th style="width:40px !important">Brand</th>
+                                                <th style="width:40px !important">Item Price (LKR) </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php
-                                                $sql="SELECT item_id, item_name, category, brand, item_price FROM items";
-                                                $result = mysqli_query($conn, $sql);
-                                                while($raw=$result->fetch_array()){	//item list 
-                                            ?>
+                                            <?php while($row = $products->fetch_array()){ ?>
                                                 <tr>
-                                                    <td><?php echo $raw[0]?></td>
-                                                    <td><?php echo $raw[1]?></td>
-                                                    <td><?php echo $raw[2]?></td>
-                                                    <td><?php echo $raw[3]?></td>
-                                                    <td><?php echo $raw[4]?></td>
+                                                    <td><?php echo $row['item_id'] ?></td>
+                                                    <td><?php echo $row['item_name'] ?></td>
+                                                    <td><?php echo $row['category'] ?></td>
+                                                    <td><?php echo $row['brand'] ?></td>
+                                                    <td><?php echo $row['item_price'] ?></td>
                                                 </tr>
-                                                    <?php
-                                                        }
-                                                    ?>
+                                            <?php } ?>
                                             </tbody>
                                             </table>
                                         </div>
@@ -312,29 +274,19 @@
                                             <table class="table table-head-fixed table-hover" id="myTable">
                                             <thead>
                                                 <tr>
-                                                <th>Email</th>
-                                                <th>User Name</th>
-                                                <th>Address</th>
-                                                <th>No. of Orders</th>
-                                                <th>Total Sales</th>
+                                                    <th>Full Name</th>
+                                                    <th>Email</th>
+                                                    <th>Address</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php
-                                                $sql="SELECT item_id, item_name, category, brand, item_price FROM items";
-                                                $result = mysqli_query($conn, $sql);
-                                                while($raw=$result->fetch_array()){	//item list 
-                                            ?>
+                                            <?php while($row = $users->fetch_array()){ ?>
                                                 <tr>
-                                                    <td><?php echo $raw[0]?></td>
-                                                    <td><?php echo $raw[1]?></td>
-                                                    <td><?php echo $raw[2]?></td>
-                                                    <td><?php echo $raw[3]?></td>
-                                                    <td><?php echo $raw[4]?></td>
+                                                    <td><?php echo $row['f_name']." ".$row['l_name'] ?></td>
+                                                    <td><?php echo $row['email'] ?></td>
+                                                    <td><?php echo $row['addr_line1'].", ".$row['addr_line2'].", ".$row['city'].", ".$row['country'].", ".$row['zip'] ?></td>
                                                 </tr>
-                                                    <?php
-                                                        }
-                                                    ?>
+                                            <?php } ?>
                                             </tbody>
                                             </table>
                                         </div>
