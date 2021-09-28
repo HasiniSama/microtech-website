@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06cc98dc-b617-4644-af98-19ba3c443489" name="Changes" comment="" />
+    <list default="true" id="06cc98dc-b617-4644-af98-19ba3c443489" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_conn.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_conn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopping_cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/shopping_cart.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +51,7 @@
       <updated>1632814295428</updated>
       <workItem from="1632814297929" duration="8493000" />
       <workItem from="1632822915090" duration="5797000" />
+      <workItem from="1632830685760" duration="10482000" />
     </task>
     <servers />
   </component>
