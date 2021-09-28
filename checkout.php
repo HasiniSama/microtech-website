@@ -28,10 +28,12 @@
     $cart_result = $conn->query($cart_sql);
 
 
+    /*generating an orderid*/
     $order_sql = "SELECT * FROM orders;";
     $order_result = $conn->query($order_sql);
-    $numberOfItems = $result1->num_rows;
-
+    $number_of_orders = $order_result->num_rows;
+    $order_id = $number_of_orders + 1;
+    $_SESSION['order_id'] = $order_id;
 
 
 ?>
@@ -56,25 +58,27 @@
 <!--Form begin-->
 <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
     <input type="hidden" name="merchant_id" value="1218734">
-    <input type="hidden" name="return_url" value="http://localhost:63342/microtech-website/index.php">
+    <input type="hidden" name="return_url" value="http://localhost:63342/microtech-website/pay_success.php">
     <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
-    <input type="hidden" name="notify_url" value="http://sample.com/notify">
+    <input type="hidden" name="notify_url" value="http://localhost:63342/microtech-website/payment_notify.php">
 
 
 
-    <input type="hidden" name="order_id" value="ItemNo12345">
-    <input type="hidden" name="items" value="Door bell wireless"><br>
+    <input type="hidden" name="order_id" value="<?php echo $order_id ?>">
+    <input type="hidden" name="items" value="
+
+            <?php while ($row = $cart_result->fetch_array()) {
+              echo $row['item_name'].",";
+            }
+            ?>
+
+"><br>
     <input type="hidden" name="currency" value="LKR">
     <input type="hidden" name="amount" value="<?php echo $_SESSION['total']?>">
 
+    <input type="hidden" name="country" value="Sri Lanka">
 
-
-
-
-
-
-
-<div class="container container-form">
+    <div class="container container-form">
 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
@@ -83,9 +87,7 @@
                 <span class="badge badge-secondary badge-pill">3</span>
             </h4>
             <ul class="list-group mb-3 sticky-top">
-                <?php while ($row = $cart_result->fetch_array()) {
-
-                ?>
+                <?php while ($row = $cart_result->fetch_array()) { ?>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0"><?php echo $row['item_name']; ?></h6>
@@ -145,8 +147,8 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="zip">City</label>
-                        <input type="text" class="form-control" id="zip" placeholder="" required="">
-                        <div class="invalid-feedback"> Zip code required.</div>
+                        <input type="text" class="form-control" id="zip" name="city" placeholder="" required="">
+                        <div class="invalid-feedback">City required</div>
                     </div>
 
 
