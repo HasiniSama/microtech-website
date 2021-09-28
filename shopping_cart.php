@@ -3,8 +3,8 @@ session_start();
 include "db_conn.php";
 
 $_SESSION['total'] = 0;
-
-$sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail=.$_SESSION['email']. and cart.itemid=items.item_id;";
+$email = $_SESSION['email'];
+$sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail=$email and cart.itemid=items.item_id;";
 $result = $conn->query($sql);
 
 ?>

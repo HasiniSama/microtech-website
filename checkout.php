@@ -18,7 +18,7 @@
 <body>
 
 <!-- Header -->
-<?php include 'include/header.php'; ?>
+<?php $page = 'checkout'; include 'include/header.php'; ?>
 
 <!-- Breadcrumb -->
 <div class="container">

@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Header -->
-	<?php include 'include/header.php'; ?>
+	<?php $page = 'product'; include 'include/header.php'; ?>
 
     <!-- breadcrumb -->
     <div class="container">
