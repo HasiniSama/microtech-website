@@ -1,11 +1,6 @@
 <?php
-session_start();
 include "db_conn.php";
 
-$_SESSION['total'] = 0;
-
-$sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail=.$_SESSION['email']. and cart.itemid=items.item_id;";
-$result = $conn->query($sql);
 
 ?>
 <!DOCTYPE html>
@@ -30,6 +25,12 @@ $result = $conn->query($sql);
 
 <!-- Header -->
 <?php $page = 'cart'; include 'include/header.php'; ?>
+
+<?php $_SESSION['total'] = 0;
+      $email=$_SESSION['email'];
+      $sql = "SELECT cart.itemid,cart.no_of_items,items.item_name,items.img_name1,items.item_price FROM `cart`,`items` WHERE cart.usermail='".$email."' and cart.itemid=items.item_id;";
+       $result = $conn->query($sql);
+?>
 
 <!-- breadcrumb -->
 <div class="container">
@@ -71,7 +72,9 @@ $result = $conn->query($sql);
                             <tr>
                                 <td class="product__cart__item">
                                     <div class="product__cart__item__pic">
-                                        <img <?php echo "src='images/products/".$row['img_name1']."'"; ?>  alt="">
+                                        <img  <?php echo "src = '".$row['img_name1']."'";  ?>  alt="">
+
+
                                     </div>
                                     <div class="product__cart__item__text">
                                         <h6><?php echo $row['item_name']; ?></h6>
