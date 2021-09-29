@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 29, 2021 at 02:20 PM
+-- Generation Time: Sep 29, 2021 at 05:17 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -74,7 +74,8 @@ INSERT INTO `items` (`item_id`, `item_name`, `category`, `brand`, `item_price`, 
 ('27', 'Galaxy Buds2', 'audio', 'samsung', 35400, 'images/products/27.0.webp', 'images/products/27.1.webp', 'images/products/27.2.webp', 'images/products/27.3.webp', 'With audio quality this good, you’ll feel the thump of every baseline and strum of every guitar right in your core. With Active Noise Cancellation and Ambient Sound, enjoy peace and quiet while you work from home or take calls without missing what’s happening around you.'),
 ('28', 'Galaxy Chromebook 2, Fiesta Red', 'laptop', 'samsung', 199800, 'images/products/28.0.webp', 'images/products/28.1.webp', 'images/products/28.2.webp', 'images/products/28.3.webp', 'Work-life balance has never been better, thanks to the world’s first QLED Chromebook. Dive into your favorite pastimes or present your next big idea with a larger-than-life,  vibrant color display.'),
 ('29', 'Galaxy Watch4 Silver', 'smartwatch', 'samsung', 89800, 'images/products/29.0.webp', 'images/products/29.1.webp', NULL, NULL, 'The new Galaxy Watch4, the watch that knows you best. Upgrade, trade in or switch to the latest Galaxy Watch with exclusive offers on Microtech'),
-('30', 'Redmi 9A , SeaBlue', 'smartphone', 'xiaomi', 19900, 'images/products/30.0.jpeg', 'images/products/30.1.jpeg', 'images/products/30.2.jpeg', 'images/products/30.3.jpeg', 'Redmi 9A brings absolute delight for those who like all things entertainment! Delivering an immersive viewing experience, the Redmi 9A comes with everything you need in a smartphone');
+('30', 'Redmi 9A , SeaBlue', 'smartphone', 'xiaomi', 19900, 'images/products/30.0.jpeg', 'images/products/30.1.jpeg', 'images/products/30.2.jpeg', 'images/products/30.3.jpeg', 'Redmi 9A brings absolute delight for those who like all things entertainment! Delivering an immersive viewing experience, the Redmi 9A comes with everything you need in a smartphone'),
+('50', 'KDH Beats pro max', 'audio', 'beats', 84499, 'images/products/50.0.jpg', 'images/products/50.1.jpg', NULL, NULL, 'High-Fidelity Audio The KDH-designed driver delivers high-fidelity playback with ultra-low distortion across the entire audible range. Noise Control Active Noise Cancellation for immersive sound. Transparency mode to hear the world around you.');
 
 --
 -- Indexes for dumped tables

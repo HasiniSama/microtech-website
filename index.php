@@ -153,10 +153,7 @@ $result = $conn->query($sqlQuery);
 
         <div class="flex-w flex-c-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10 align">
-                <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5 ">
-                    All Products
-                </button>
-
+                    
                 <button class="stext-106 cl6 bor3 trans-04 m-r-32 m-tb-5">
                     Smartphones
                 </button>

@@ -265,14 +265,14 @@ table{
     margin: 0px !important;
 }
 
-.main-box{
+.pie-chart-content .main-box{
     background-color: #e6e6e6;
     height: 100%;
     border-radius: 30px;
 
 }
 
-.main-box h3{
+.pie-chart-content .main-box h3{
     color: #717fe0;
     text-align: center;
     font-size: 1.5rem;
@@ -282,4 +282,28 @@ table{
     color: #717fe0;
     font-family:Poppins-SemiBold ;
     
+}
+
+.line-chart-content{
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+.line-chart-content .main-box{
+  height: 100%;
+  border-radius: 30px;
+  width: 100%;
+  border: 1px solid #717fe0;
+}
+
+.line-chart-content .main-box h3{
+  color: #717fe0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 20px;
+  padding-top: 20px;
+  color: #717fe0;
+  font-family:Poppins-SemiBold ;
+  
 }

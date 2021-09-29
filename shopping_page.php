@@ -102,10 +102,24 @@ $result2 = $conn->query($sqlQuery2);
             Shop
             <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
         </a>
+        
+        <span class="stext-109 cl4">
+        <?php if($category != NULL){ ?>
+            <?php echo $category ?>
+        <?php }else { ?>
+            <?php echo "All Category" ?>
+        <?php } ?>
+            <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>   
+        </span>
 
         <span class="stext-109 cl4">
-            Smartphones
+        <?php if($brand != NULL){ ?>
+            <?php echo $brand ?>
+        <?php }else { ?>
+            <?php echo "All Brands" ?>
+        <?php } ?>
         </span>
+
     </div>
 </div>
 
@@ -127,8 +141,8 @@ $result2 = $conn->query($sqlQuery2);
                             <div class="card-body">
                                 <div class="shop_sidebar_filter">
                                     <ul>
-                                        <li><a href="shopping_page.php?category=&brand=<?php echo $brand ?>">All categories</a></li>
-                                        <li><a href="shopping_page.php?category=smartphone&brand=<?php echo $brand ?>">Smart Phones</a></li>
+                                        <li><a href="shopping_page.php?category=&brand=<?php echo $brand ?>" >All categories</a></li>
+                                        <li><a href="shopping_page.php?category=smartphone&brand=<?php echo $brand ?> ">Smart Phones</a></li>
                                         <li><a href="shopping_page.php?category=smartwatch&brand=<?php echo $brand ?>">Smart Watches</a></li>
                                         <li><a href="shopping_page.php?category=tablet&brand=<?php echo $brand ?>">Tablets</a></li>
                                         <li><a href="shopping_page.php?category=laptop&brand=<?php echo $brand ?>">Laptops</a></li>
@@ -164,8 +178,8 @@ $result2 = $conn->query($sqlQuery2);
                     <!--------------Products------------------->
                     <?php while($row = $result2->fetch_array()){ ?>
                         <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product_item">
-                                <div class="product_item_pic set-bg" data-setbg="<?php echo $row['img_name1'] ?>">
+                            <div class="product_item ">
+                                <div class="product_item_pic set-bg " data-setbg="<?php echo $row['img_name1'] ?>">
                                 </div>
                                 <div class="product_item_text">
                                     <h5><?php echo $row['item_name'] ?></h5>

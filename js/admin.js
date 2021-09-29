@@ -55,7 +55,7 @@ let mychart1 = new Chart(ctx1,{
         labels: ['Smart Phones','Smart Watches', 'Tablets', 'Laptops', 'Audio', 'Accessories'],
         datasets : [
             {
-                label:'# of votes',
+                label:'Total Sales by Catagory',
                 data: [Smart_Phones,Smart_Watches,Tablets,Laptops,Audio,Accessories],
                 backgroundColor:['#717fe0','#7180e0cd','#7180e092','#7180e068','#7180e043','#7180e01d'],
                 borderWidth:1
@@ -73,7 +73,7 @@ let mychart2 = new Chart(ctx2,{
         labels: ['Apple', 'Samsung', 'Huawei', 'Sony'],
         datasets : [
             {
-                label:'# of votes',
+                label:'Total Sales by Brand',
                 data: [Apple,Samsung,Huawei,Sony],
                 backgroundColor:['#717fe0','#7180e0cd','#7180e092','#7180e068'],
                 borderWidth:1
@@ -82,7 +82,38 @@ let mychart2 = new Chart(ctx2,{
     }
 })
 
+/* [ Line Charts ] */
 
+const ctx3 = document.getElementById('mychart3').getContext('2d');
+let mychart3 = new Chart(ctx3,{
 
+    type:'line',
+    data: {
 
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets : [
+            {
+                label:'Daily Revenue',
+                data: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday],
+                backgroundColor: 'transparent',
+                borderColor: '#717fe0',
+                borderWidth:4
+            }
+        ]
+    },
+    options : {
+        elements : {
+            line : {
+                tension:0
+            }
+        },
+        scales : {
+            yAxes : [{
+                ticks : {
+                    beginAtZero : true
+                }
+            }]
+        }
+    }
+})
 

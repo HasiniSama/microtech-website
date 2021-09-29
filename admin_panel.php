@@ -3,7 +3,7 @@ include "db_conn.php";
 
     $cat = array('smartphone', 'smartwatch', 'tablet', 'laptop', 'audio', 'accessories');
     $brand = array( 'apple', 'samsung', 'huawei', 'sony');
-
+    $day = array('216568', '256568', '316568', '440999' ,'530999','500999','420999',);
     //get total revenue by category
     for($i = 0 ; $i < 6 ; $i++){
         
@@ -192,6 +192,13 @@ include "db_conn.php";
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row line-chart-content">
+                                <div class="main-box">
+                                    <h3>Daily Revenue</h3>
+                                    <canvas id="mychart3"></canvas>
+                                </div>
+                            </div>
                         </div>
 						<div class="tab-pane fade" id="orders" role="tabpanel">
 							<!-- /.row -->
@@ -345,7 +352,7 @@ include "db_conn.php";
 <!-- Footer Section -->
 <?php include 'include/footer.php'; ?>
       
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
@@ -375,6 +382,15 @@ include "db_conn.php";
         const Samsung = <?php echo $brand[1] ?>;
         const Huawei = <?php echo $brand[2] ?>;
         const Sony = <?php echo $brand[3] ?>;
+
+        const Monday = <?php echo $day[0] ?>;
+        const Tuesday = <?php echo $day[1] ?>;
+        const Wednesday = <?php echo $day[2] ?>;
+        const Thursday = <?php echo $day[3] ?>;
+        const Friday = <?php echo $day[4] ?>;
+        const Saturday = <?php echo $day[5] ?>;
+        const Sunday = <?php echo $day[6] ?>;
+
 </script>
 
 <script src="js/admin.js"></script>

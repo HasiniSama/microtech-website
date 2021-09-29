@@ -127,17 +127,33 @@
 /* Products */
 .product_item {
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .product_item:hover .product_item_text a {
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
     top: 20px;
     opacity: 1;
     visibility: visible;
+    margin-left: 80px;
+    text-decoration: none;
+    border-color: #717fe0;
+    background-color: #717fe0;
+    color: #fff;
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: 139px;
+    height: 40px;
 }
 
 .product_item:hover .product_item_text h5 {
     opacity: 0;
+    margin-top: 10px;
 }
 
 .product_item_pic {

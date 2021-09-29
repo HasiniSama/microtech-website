@@ -3,7 +3,14 @@ include "db_conn.php";
 
 //get session variables
 session_start();
-$email = $_SESSION['email'];
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+}
+else if(isset($_SESSION['admin_email'])) {
+    $email = $_SESSION['admin_email'];
+}
+
 session_write_close();
 
 //get product id using incoming url
@@ -18,11 +25,35 @@ $product = $result->fetch_array();
 $sqlQuery2 = "SELECT * FROM items WHERE category = '".$product['category']."' AND item_id != ".$productId;
 $result2 = $conn->query($sqlQuery2);
 
-if(isset($_REQUEST['submit'])){
+//getting current stock values
+$sqlQuery4 = "SELECT * FROM stock WHERE item_id = ".$productId;
+$result4 = $conn->query($sqlQuery4);
+$stockItem = $result4->fetch_array();
+$no_of_items = $stockItem['no_of_items'];
+
+if(isset($_REQUEST['submit']) && isset($_SESSION['email'])){
     $qty = $_REQUEST['num-product'];
-    $sqlQuery3 = "INSERT INTO cart values ('".$email."','".$productId."','".$qty."')";
-    $result3 = $conn->query($sqlQuery3);
+
+    if($no_of_items >= $qty) {
+        //adding data to the cart
+        $sqlQuery3 = "INSERT INTO cart values ('" . $email . "','" . $productId . "','" . $qty . "')";
+        $result3 = $conn->query($sqlQuery3);
+
+        //update stock values
+        $new_no_of_items = $no_of_items - $qty;
+        $sqlQuery5 = "UPDATE stock SET no_of_items = " . $new_no_of_items . " WHERE item_id = " . $productId;
+        $result5 = $conn->query($sqlQuery5);
+    }
+} // redirect user to sign in
+else if(isset($_REQUEST['submit'])){
+    header("Location: signin_page.php?error=Please sign in to proceed!");
+    exit();
 }
+
+// update current stock values again
+$result4 = $conn->query($sqlQuery4);
+$stockItem = $result4->fetch_array();
+$no_of_items = $stockItem['no_of_items'];
 
 ?>
 
@@ -70,20 +101,27 @@ if(isset($_REQUEST['submit'])){
             <div class="row">
                 <div class="col-md-6 col-lg-7 product-image">
                     <img src="<?php echo $product['img_name1'] ?>" id = "ProductImg" alt="PRODUCT-IMG">
-                    <div class="small-img-row">
-                        <div class="small-img-col">
-                            <img src="<?php echo $product['img_name1'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                        <div class="small-img-row">
+                            <div class="small-img-col">
+                                <img src="<?php echo $product['img_name1'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                            </div>
+                            <?php if($product['img_name2'] != NULL){ ?>
+                            <div class="small-img-col">
+                                <img src="<?php echo $product['img_name2'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                            </div>
+                            <?php } ?>
+                            <?php if($product['img_name3'] != NULL){ ?>
+                            <div class="small-img-col">
+                                <img src="<?php echo $product['img_name3'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                            </div>
+                            <?php } ?>
+                            <?php if($product['img_name4'] != NULL){ ?>
+                            <div class="small-img-col">
+                                <img src="<?php echo $product['img_name4'] ?>" alt="PRODUCT-IMG" class = "small-img">
+                            </div>
+                            <?php } ?>
                         </div>
-                        <div class="small-img-col">
-                            <img src="<?php echo $product['img_name2'] ?>" alt="PRODUCT-IMG" class = "small-img">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="<?php echo $product['img_name3'] ?>" alt="PRODUCT-IMG" class = "small-img">
-                        </div>
-                        <div class="small-img-col">
-                            <img src="<?php echo $product['img_name4'] ?>" alt="PRODUCT-IMG" class = "small-img">
-                        </div>
-                    </div>
+                   
                 </div>
                 <div class="col-md-6 col-lg-5 p-b-30">
                     <div class="product-section">
@@ -97,28 +135,53 @@ if(isset($_REQUEST['submit'])){
                             <?php echo $product['long_description'] ?>
                         </p>
 
+                        <?php
+                        if($no_of_items>0) { ?>
+                            <p class = "in-stock"><?php echo "Item : <span>".$no_of_items." items in stock </span>" ?> </p>
+                        <?php }
+                        else{
+                            echo "<p>Item : <span> Out of stock </span></p>";
+                        }?>
+                        
+
                         <div class="product-details">
-
-
                             <div class="product-options">
                                 <div class="product-amount">
-                                    <form id="form" name="form" method="post" action="<?php $_SERVER['PHP_SELF'];?>">
-                                        <div class="amount-counter">
-                                            <div class="btn-num-product-down">
-                                                <i class="fs-16 zmdi zmdi-minus"></i>
+                                    <?php if($no_of_items>0) { ?>
+                                        <form id="form" name="form" method="post" action="<?php $_SERVER['PHP_SELF'];?>">
+                                            <div class="amount-counter">
+                                                <div class="btn-num-product-down">
+                                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                                </div>
+
+                                                <input class="num-product" type="number" name="num-product" id="num-product" value="1">
+
+                                                <div class="btn-num-product-up">
+                                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                                </div>
                                             </div>
 
-                                            <input class="num-product" type="number" name="num-product" id="num-product" value="1">
+                                            <button class="btn-add-cart js-addcart-detail" name="submit" id="submit">
+                                                Add to cart
+                                            </button>
+                                        </form>
+                                    <?php }else{ ?>
+                                            <div class="amount-counter">
+                                                <div class="btn-num-product-out">
+                                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                                </div>
 
-                                            <div class="btn-num-product-up">
-                                                <i class="fs-16 zmdi zmdi-plus"></i>
+                                                <input class="num-product" type="number" name="num-product" id="num-product" value="1">
+
+                                                <div class="btn-num-product-out">
+                                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <button class="btn-add-cart js-addcart-detail" name="submit" id="submit">
-                                            Add to cart
-                                        </button>
-                                    </form>
+                                            <button class="btn-out-cart js-addcart-detail">
+                                                Add to cart
+                                            </button>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +194,6 @@ if(isset($_REQUEST['submit'])){
                             </div>
                             <h6>Add to wishlist</h6>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -259,7 +321,8 @@ if(isset($_REQUEST['submit'])){
                             <div class="block2">
                                 <div class="block2-pic hov-img1">
                                     <img src="<?php echo $row['img_name1'] ?>" alt="IMG-PRODUCT">
-                                    <a href="product_page.php?item=<?php echo $row['item_id'] ?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                                    <a href="product_page.php?item=<?php echo $row['item_id'] ?>"
+                                       class="block2-btn flex-c-m stext-103 cl0 size-102 bg3 bor2 hov-btn2 p-lr-15 trans-04">
                                         View
                                     </a>
                                 </div>
