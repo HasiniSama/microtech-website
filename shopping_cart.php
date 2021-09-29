@@ -1,3 +1,58 @@
+<?php
+include "db_conn.php";
+
+//get session variables
+session_start();
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+}
+else if(isset($_SESSION['admin_email'])) {
+    $email = $_SESSION['admin_email'];
+}
+else{
+    $email = "";
+}
+
+$_SESSION['cart_sql'] = "SELECT cart.itemid,
+                              cart.no_of_items,
+                              items.item_name,
+                              items.img_name1,
+                              items.item_price,
+                              items.long_description 
+                       FROM `cart`,
+                            `items`
+                       WHERE cart.usermail='".$email."' 
+                       and cart.itemid=items.item_id;";
+
+//$result = $conn->query($_SESSION['cart_sql']);
+
+session_write_close();
+
+if(isset($_REQUEST['submit'])){
+    $productId = $_REQUEST['itemId'];
+    $qty = $_REQUEST['qty'];
+
+    //getting current stock values
+    $sqlQuery2 = "SELECT * FROM stock WHERE item_id = ".$productId;
+    $result2 = $conn->query($sqlQuery2);
+    $stockItem = $result2->fetch_array();
+    $no_of_items = $stockItem['no_of_items'];
+
+    //update stock values
+    $new_no_of_items = $no_of_items + $qty;
+    $sqlQuery3 = "UPDATE stock SET no_of_items = " . $new_no_of_items . " WHERE item_id = " . $productId;
+    $result3 = $conn->query($sqlQuery3);
+
+    $sqlQuery4 = "DELETE from cart WHERE usermail ='".$email."' AND itemid = '".$productId."'";
+    $result4 = $conn->query($sqlQuery4);
+}
+
+//update cart items again
+$result = $conn->query($_SESSION['cart_sql']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,27 +75,10 @@
 <body>
 
 <!-- Header -->
-<?php $page = 'cart'; include 'include/header.php'; ?>
-
-<?php $_SESSION['total'] = 0;
-      $email=$_SESSION['email'];
-
-      $_SESSION['cart_sql'] = "SELECT cart.itemid,
-                                      cart.no_of_items,
-                                      items.item_name,
-                                      items.img_name1,
-                                      items.item_price,
-                                      items.long_description 
-                               FROM `cart`,
-                                    `items`
-                               WHERE cart.usermail='".$email."' 
-                               and cart.itemid=items.item_id;";
-
-      $result = $conn->query($_SESSION['cart_sql']);
-
-
-
-
+<?php
+$page = 'cart';
+include 'include/header.php';
+$_SESSION['total'] = 0;
 ?>
 
 <!-- breadcrumb -->
@@ -72,50 +110,42 @@
                         <thead>
                         <tr>
                             <th>Product</th>
-                            <th id="quanitiy">Quantity</th>
+                            <th>Quantity</th>
                             <th>Total</th>
-                            <th></th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <!--Iterate through cart - begin-->
-                        <?php while ($row = $result->fetch_array()) { ?>
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img  <?php echo "src = '".$row['img_name1']."'";  ?>  alt="">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6><?php echo $row['item_name']; ?></h6>
-                                        <h5><?php echo "LKR. ".$row['item_price']; ?></h5>
-                                    </div>
-                                </td>
-
-                                <td class="quantity__item">
-                                    <div class="amount-counter">
-                                        <div class="btn-num-product-down">
-                                            <i class="fs-16 zmdi zmdi-minus"></i>
+                            <!--Iterate through cart - begin-->
+                            <?php while ($row = $result->fetch_array()) { ?>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img  <?php echo "src = '".$row['img_name1']."'";  ?>  alt="">
                                         </div>
-
-                                        <input class="num-product" type="number" name="num-product"
-                                               value=<?php echo $row['no_of_items']?>>
-
-                                        <div class="btn-num-product-up">
-                                            <i class="fs-16 zmdi zmdi-plus"></i>
+                                        <div class="product__cart__item__text">
+                                            <h6><?php echo $row['item_name']; ?></h6>
+                                            <h5><?php echo "LKR. ".$row['item_price']; ?></h5>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="cart__price">
-                                    <?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";?>
-                                </td>
-                                <div>
-                                <td class="cart__close"><i class="fa fa-close" ></i></td>
-                                </div>
-                            </tr>
-                        <?php $_SESSION['total'] += $row['item_price']*$row['no_of_items'];
-                        } ?>
-                        <!--iterate through cart - end-->
+                                    </td>
+                                    <td>
+                                        <?php echo $row['no_of_items'];?>
+                                    </td>
 
+                                    <td class="cart__price">
+                                        <?php echo "LKR. ".$row['item_price']*$row['no_of_items'];?>
+                                    </td>
+                                    <td>
+                                        <form id="form" name="form" method="post" action="<?php $_SERVER['PHP_SELF'];?>">
+                                            <input type="hidden" name="itemId" id="itemId" value="<?php echo $row['itemid']; ?>">
+                                            <input type="hidden" name="qty" id="qty" value="<?php echo $row['no_of_items']; ?>">
+                                            <input type="submit" name="submit" id="submit" value="Remove">
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php $_SESSION['total'] += $row['item_price']*$row['no_of_items'];
+                            } ?>
+                            <!--iterate through cart - end-->
                         </tbody>
                     </table>
                 </div>
@@ -176,9 +206,5 @@
 
     <script src="js/app.js"></script>	
     <script src="js/product.js"></script>
-
-
-
-
 </body>
 </html>

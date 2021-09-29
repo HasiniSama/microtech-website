@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="06cc98dc-b617-4644-af98-19ba3c443489" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/checkout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_conn.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_conn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pay_success.php" beforeDir="false" afterPath="$PROJECT_DIR$/pay_success.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopping_cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/shopping_cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/about/team-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/about/team-3.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +53,7 @@
       <workItem from="1632830685760" duration="10482000" />
       <workItem from="1632846967353" duration="15437000" />
       <workItem from="1632908600268" duration="339000" />
+      <workItem from="1632922898583" duration="620000" />
     </task>
     <servers />
   </component>
