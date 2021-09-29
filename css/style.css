@@ -305,8 +305,13 @@ text-decoration: none;
 }
 
 /* [ Block2 ] */
+
 .block2-pic {
   position: relative;
+}
+
+.isotope-item .block2-pic{
+  height: 250px !important;
 }
 
 .block2-btn {
@@ -319,6 +324,7 @@ text-decoration: none;
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
   text-decoration: none;
+  background-color: black;
 }
 
 .block2-pic:hover .block2-btn {
@@ -492,6 +498,12 @@ text-decoration: none;
   color: #fff;
 }
 
+.hov-btn2:hover {
+  border-color: #717fe0;
+  background-color: #717fe0;
+  color: #fff;
+}
+
   /*[ Border ]*/
 
 .bor0 {border-radius: 50%;}
@@ -581,6 +593,7 @@ color:#717fe0;
 .bg0 {background-color: #fff;}
 .bg1 {background-color: #717fe0;}
 .bg2 {background-color: #e6e6e6;}
+.bg3 {background-color: #000000;}
 
 /* [ Hover ] */
 .hov-cl0:hover {color: #fff;}

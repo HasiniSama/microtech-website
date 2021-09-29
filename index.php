@@ -182,12 +182,12 @@ $result = $conn->query($sqlQuery);
         <div class="row isotope-grid">
             <!-- Newly added products -->
             <?php while($row = $result->fetch_array()){ ?>
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-0 isotope-item">
                     <div class="block2">
-                        <div class="block2-pic hov-img1">
+                        <div class="block2-pic hov-img1 hov-img0">
                             <img src="<?php echo $row['img_name1'] ?>" alt="IMG-PRODUCT">
                             <a href="product_page.php?item=<?php echo $row['item_id'] ?>"
-                               class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                               class="block2-btn flex-c-m stext-103 cl0 size-102 bg3 bor2 hov-btn2 p-lr-15 trans-04">
                                 View
                             </a>
                         </div>
@@ -225,7 +225,7 @@ $result = $conn->query($sqlQuery);
         <div class="row flex-t">
             <div class="col-lg-6">
                 <div class="deal-pic">
-                    <img src="images/products/4.0.jpg" alt="DEAL-OF-THE-WEEK">
+                    <img src="images/products/50.0.jpg" alt="DEAL-OF-THE-WEEK">
                 </div>
             </div>
             <div class="col-lg-6 p-t-80">
@@ -257,7 +257,7 @@ $result = $conn->query($sqlQuery);
                         </li>
                     </ul>
                     <div class="p-t-23">
-                        <a href="product_page.php?item=04" class="deal-btn flex-c-m stext-103 cl0 size-102 bg1 bor2 hov-btn1 trans-04">Shop
+                        <a href="product_page.php?item=50" class="deal-btn flex-c-m stext-103 cl0 size-102 bg1 bor2 hov-btn1 trans-04">Shop
                             now</a>
                     </div>
                 </div>
@@ -285,7 +285,7 @@ $result = $conn->query($sqlQuery);
             </div>
         </div>
         <div class="row isotope-grid flex-c-m">
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35">
                 <!-- Block -->
                 <div class="block2">
                     <div class="block2-pic hov-img1">
@@ -315,7 +315,7 @@ $result = $conn->query($sqlQuery);
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4 col-lg-3 m-l-32 p-b-35 isotope-item">
+            <div class="col-sm-6 col-md-4 col-lg-3 m-l-32 p-b-35 ">
                 <!-- Block -->
                 <div class="block2">
                     <div class="block2-pic hov-img1">
@@ -344,7 +344,7 @@ $result = $conn->query($sqlQuery);
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3 m-l-32 p-b-35 isotope-item">
+            <div class="col-sm-6 col-md-4 col-lg-3 m-l-32 p-b-35">
                 <!-- Block -->
                 <div class="block2">
                     <div class="block2-pic hov-img1">
