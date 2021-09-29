@@ -1,47 +1,27 @@
 <?php
 include "db_conn.php";
 
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'smartphone'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $smartphone_revenue = mysqli_fetch_assoc($result_cat);
+    $cat = array('smartphone', 'smartwatch', 'tablet', 'laptop', 'audio', 'accessories');
+    $brand = array( 'apple', 'samsung', 'huawei', 'sony');
 
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'smartwatch'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $smartwatch_revenue = mysqli_fetch_assoc($result_cat);
+    //get total revenue by category
+    for($i = 0 ; $i < 6 ; $i++){
+        
+        $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = '$cat[$i]'))";
+        $result_cat = mysqli_query($conn, $sql_cat);
+        $row = mysqli_fetch_assoc($result_cat);
+        $cat[$i] = $row['total'];
+    }
 
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'tablet'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $tablet_revenue = mysqli_fetch_assoc($result_cat);
+    //get total revenue by brand
+    for($i = 0 ; $i < 4 ; $i++){
+        
+        $sql_brand= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = '$brand[$i]'))";
+        $result_brand = mysqli_query($conn, $sql_brand);
+        $row = mysqli_fetch_assoc($result_brand);
+        $brand[$i] = $row['total'];
+    }
 
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'laptop'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $laptop_revenue = mysqli_fetch_assoc($result_cat);
-
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'audio'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $audio_revenue = mysqli_fetch_assoc($result_cat);
-
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = 'accessories'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $accessories_revenue = mysqli_fetch_assoc($result_cat);
-
-    
-
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'apple'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $apple_revenue = mysqli_fetch_assoc($result_cat);
-
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'samsung'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $samsung_revenue = mysqli_fetch_assoc($result_cat);
-
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'huawei'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $huawei_revenue = mysqli_fetch_assoc($result_cat);
-
-    $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = 'sony'))";
-    $result_cat = mysqli_query($conn, $sql_cat);
-    $sony_revenue = mysqli_fetch_assoc($result_cat);
 
     //get order details for orders table
     $ordersSqlQuery = "SELECT * FROM orders";
@@ -54,6 +34,22 @@ include "db_conn.php";
     //get users details for users table
     $usersSqlQuery = "SELECT * FROM users,address WHERE email=usermail";
     $users = $conn->query($usersSqlQuery);
+
+    //get total no of orders
+    $totalQrdersSql = "SELECT COUNT(*) AS total FROM orders;";
+    $result_summary = mysqli_query($conn, $totalQrdersSql);
+    $total_orders = mysqli_fetch_assoc($result_summary);
+
+    //get total no of users
+    $totalUsersSql = "SELECT COUNT(*) AS total FROM users;";
+    $result_summary = mysqli_query($conn, $totalUsersSql);
+    $total_users = mysqli_fetch_assoc($result_summary);
+
+    //get daily revenue
+    $date = date('d');
+    $totalRevSql = "SELECT order_time, SUM(revenue) AS sales_per_day FROM orders WHERE DAY(order_time)='$date' GROUP BY order_time;";
+    $result_summary = mysqli_query($conn, $totalRevSql);
+    $total_Rev = mysqli_fetch_assoc($result_summary);
 
 ?>
 
@@ -129,7 +125,7 @@ include "db_conn.php";
                                     <!-- small box -->
                                     <div class="small-box bg-info">
                                         <div class="inner">
-                                            <h3>150</h3>
+                                            <h3><?php echo $total_orders['total'] ?></h3>
                                             <p>New Orders</p>
                                         </div>
                                         <div class="icon">
@@ -143,8 +139,7 @@ include "db_conn.php";
                                     <!-- small box -->
                                     <div class="small-box bg-success">
                                     <div class="inner">
-                                        <h3>LKR 53,OOO/-<sup style="font-size: 20px"></sup></h3>
-
+                                        <h3><?php echo "LKR ".$total_Rev['sales_per_day']. "/-" ?><sup style="font-size: 18px"></sup></h3>
                                         <p>Daily Revenue</p>
                                     </div>
                                     <div class="icon">
@@ -158,8 +153,7 @@ include "db_conn.php";
                                     <!-- small box -->
                                     <div class="small-box bg-info">
                                     <div class="inner">
-                                        <h3>44</h3>
-
+                                        <h3><?php echo $total_users['total'] ?></h3>
                                         <p>User Registrations</p>
                                     </div>
                                     <div class="icon">
@@ -208,7 +202,7 @@ include "db_conn.php";
                                             <h3 class="card-title">Orders Table</h3>
                                             <div class="card-tools">
                                                 <div class="input-group input-group-sm" style="width: 250px;">
-                                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
                                                     <div class="input-group-append">
                                                         <button type="submit" class="btn btn-default">
                                                             <i class="fas fa-search"></i>
@@ -370,17 +364,17 @@ include "db_conn.php";
 
 
 <script>
-        const Smart_Phones = <?php echo $smartphone_revenue['total'] ?>;
-        const Smart_Watches = <?php echo $smartwatch_revenue['total'] ?>;
-        const Tablets = <?php echo $tablet_revenue['total'] ?>;
-        const Laptops = <?php echo $laptop_revenue['total'] ?>;
-        const Audio = <?php echo $audio_revenue['total'] ?>;
-        const Accessories = <?php echo $accessories_revenue['total'] ?>;
+        const Smart_Phones = <?php echo $cat[0] ?>;
+        const Smart_Watches = <?php echo $cat[1] ?>;
+        const Tablets = <?php echo $cat[2] ?>;
+        const Laptops = <?php echo $cat[3] ?>;
+        const Audio = <?php echo $cat[4] ?>;
+        const Accessories = <?php echo $cat[5] ?>;
         
-        const Apple = <?php echo $apple_revenue['total'] ?>;
-        const Samsung = <?php echo $samsung_revenue['total'] ?>;
-        const Huawei = <?php echo $huawei_revenue['total'] ?>;
-        const Sony = <?php echo $sony_revenue['total'] ?>;
+        const Apple = <?php echo $brand[0] ?>;
+        const Samsung = <?php echo $brand[1] ?>;
+        const Huawei = <?php echo $brand[2] ?>;
+        const Sony = <?php echo $brand[3] ?>;
 </script>
 
 <script src="js/admin.js"></script>
