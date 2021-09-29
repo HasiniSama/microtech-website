@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Sep 29, 2021 at 06:22 AM
+-- Generation Time: Sep 29, 2021 at 06:40 AM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -128,7 +128,8 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
-('1', '01', 1);
+('1', '01', 1),
+('1', '02', 1);
 
 -- --------------------------------------------------------
 
@@ -139,8 +140,16 @@ INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
 CREATE TABLE `orders` (
   `order_id` varchar(10) NOT NULL,
   `user_email` varchar(100) NOT NULL,
-  `price` int(7) NOT NULL
+  `price` int(7) NOT NULL,
+  `order_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `user_email`, `price`, `order_time`) VALUES
+('1', 'j@gmail.com', 574980, '2021-09-29 06:38:24');
 
 -- --------------------------------------------------------
 
@@ -159,7 +168,7 @@ CREATE TABLE `stock` (
 
 INSERT INTO `stock` (`item_id`, `no_of_items`) VALUES
 ('01', 1),
-('02', 3);
+('02', 2);
 
 -- --------------------------------------------------------
 
