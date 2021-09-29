@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 28, 2021 at 11:33 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Host: localhost:8889
+-- Generation Time: Sep 29, 2021 at 06:40 AM
+-- Server version: 5.7.34
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -128,12 +128,8 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
-('001', '01', 1),
-('002', '03', 1),
-('003', '04', 1),
-('004', '07', 2),
-('005', '06', 1),
-('006', '05', 1);
+('1', '01', 1),
+('1', '02', 1);
 
 -- --------------------------------------------------------
 
@@ -144,21 +140,16 @@ INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
 CREATE TABLE `orders` (
   `order_id` varchar(10) NOT NULL,
   `user_email` varchar(100) NOT NULL,
-  `revenue` int(7) NOT NULL,
-  `order_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `price` int(7) NOT NULL,
+  `order_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_email`, `revenue`, `order_time`) VALUES
-('001', 'hasinisama99@gmail.com', 174990, '2021-09-28 17:41:43'),
-('002', 'hasinisama99@gmail.com', 52199, '2021-09-28 17:41:43'),
-('003', 'hasinisama99@gmail.com', 74999, '2021-09-28 17:41:43'),
-('004', 'hasinisama99@gmail.com', 14380, '2021-09-28 17:41:43'),
-('005', 'hasinisama99@gmail.com', 275999, '2021-09-28 20:57:46'),
-('006', 'hasinisama99@gmail.com', 255000, '2021-09-28 20:57:46');
+INSERT INTO `orders` (`order_id`, `user_email`, `price`, `order_time`) VALUES
+('1', 'j@gmail.com', 574980, '2021-09-29 06:38:24');
 
 -- --------------------------------------------------------
 
@@ -170,6 +161,14 @@ CREATE TABLE `stock` (
   `item_id` varchar(10) NOT NULL,
   `no_of_items` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `stock`
+--
+
+INSERT INTO `stock` (`item_id`, `no_of_items`) VALUES
+('01', 1),
+('02', 2);
 
 -- --------------------------------------------------------
 
@@ -184,7 +183,7 @@ CREATE TABLE `users` (
   `password` varchar(40) NOT NULL,
   `email_verification_link` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 0
+  `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

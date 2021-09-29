@@ -87,7 +87,8 @@
                 <span class="badge badge-secondary badge-pill">3</span>
             </h4>
             <ul class="list-group mb-3 sticky-top">
-                <?php while ($row = $cart_result->fetch_array()) { ?>
+                <?php $cart_result = $conn->query($cart_sql);
+                while ($row = $cart_result->fetch_array()) { ?>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0"><?php echo $row['item_name']; ?></h6>
@@ -171,7 +172,8 @@
 
 
                 <hr class="mb-4">
-                <button class="btn btn-dark btn-lg btn-block" value="buy Now" type="submit">Continue to checkout</button>
+
+                <button class="btn_hover btn btn-dark btn-lg btn-block " value="buy Now" type="submit">Continue to checkout</button>
             </form>
         </div>
     </div>
