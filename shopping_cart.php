@@ -90,6 +90,7 @@
                                         <h5><?php echo "LKR. ".$row['item_price']; ?></h5>
                                     </div>
                                 </td>
+
                                 <td class="quantity__item">
                                     <div class="amount-counter">
                                         <div class="btn-num-product-down">
@@ -107,7 +108,9 @@
                                 <td class="cart__price">
                                     <?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";?>
                                 </td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
+                                <div>
+                                <td class="cart__close"><i class="fa fa-close" ></i></td>
+                                </div>
                             </tr>
                         <?php $_SESSION['total'] += $row['item_price']*$row['no_of_items'];
                         } ?>
@@ -173,5 +176,9 @@
 
     <script src="js/app.js"></script>	
     <script src="js/product.js"></script>
+
+
+
+
 </body>
 </html>

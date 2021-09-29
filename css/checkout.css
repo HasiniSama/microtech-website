@@ -39,3 +39,7 @@
     line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
+
+:hover .btn_hover {
+    background-color: #717fe0;
+}
