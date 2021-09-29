@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 29, 2021 at 05:42 PM
+-- Generation Time: Sep 29, 2021 at 05:57 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -41,7 +41,7 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`usermail`, `addr_line1`, `addr_line2`, `city`, `country`, `zip`) VALUES
-('hasinisama99@gmail.com', 'No: 277/C,', 'Makewita,', 'Ja-Ela', 'Sri Lanka', 11350);
+('hasinisama99@gmail.com', 'No: 277/C', 'Makewita', 'Ja-Ela', 'Sri Lanka', 11350);
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`usermail`, `itemid`, `no_of_items`) VALUES
-('', '50', 2);
+('', '50', 2),
+('hasinisama99@gmail.com', '01', 1);
 
 -- --------------------------------------------------------
 
@@ -182,7 +183,8 @@ INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
 ('003', '04', 1),
 ('004', '07', 2),
 ('005', '06', 1),
-('006', '05', 1);
+('006', '05', 1),
+('7', '01', 1);
 
 -- --------------------------------------------------------
 
@@ -193,7 +195,7 @@ INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
 CREATE TABLE `orders` (
   `order_id` varchar(10) NOT NULL,
   `user_email` varchar(100) NOT NULL,
-  `revenue` int(7) NOT NULL,
+  `price` int(7) NOT NULL,
   `order_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -201,7 +203,7 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_email`, `revenue`, `order_time`) VALUES
+INSERT INTO `orders` (`order_id`, `user_email`, `price`, `order_time`) VALUES
 ('001', 'hasinisama99@gmail.com', 174990, '2021-09-28 17:41:43'),
 ('002', 'hasinisama99@gmail.com', 52199, '2021-09-28 17:41:43'),
 ('003', 'hasinisama99@gmail.com', 74999, '2021-09-28 17:41:43'),
@@ -225,7 +227,7 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`item_id`, `no_of_items`) VALUES
-('001', 5);
+('001', 2);
 
 -- --------------------------------------------------------
 

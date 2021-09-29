@@ -7,7 +7,7 @@ include "db_conn.php";
     //get total revenue by category
     for($i = 0 ; $i < 6 ; $i++){
         
-        $sql_cat= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = '$cat[$i]'))";
+        $sql_cat= "SELECT SUM(price) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE category = '$cat[$i]'))";
         $result_cat = mysqli_query($conn, $sql_cat);
         $row = mysqli_fetch_assoc($result_cat);
         $cat[$i] = $row['total'];
@@ -16,7 +16,7 @@ include "db_conn.php";
     //get total revenue by brand
     for($i = 0 ; $i < 4 ; $i++){
         
-        $sql_brand= "SELECT SUM(revenue) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = '$brand[$i]'))";
+        $sql_brand= "SELECT SUM(price) AS total FROM orders WHERE order_id IN (SELECT order_id FROM orderdetails WHERE item_id IN (SELECT item_id FROM items WHERE brand = '$brand[$i]'))";
         $result_brand = mysqli_query($conn, $sql_brand);
         $row = mysqli_fetch_assoc($result_brand);
         $brand[$i] = $row['total'];
@@ -47,7 +47,7 @@ include "db_conn.php";
 
     //get daily revenue
     $date = date('d');
-    $totalRevSql = "SELECT order_time, SUM(revenue) AS sales_per_day FROM orders WHERE DAY(order_time)='$date' GROUP BY order_time;";
+    $totalRevSql = "SELECT order_time, SUM(price) AS sales_per_day FROM orders WHERE DAY(order_time)='$date' GROUP BY order_time;";
     $result_summary = mysqli_query($conn, $totalRevSql);
     $total_Rev = mysqli_fetch_assoc($result_summary);
 
@@ -235,7 +235,7 @@ include "db_conn.php";
                                                 <td><?php echo $row['order_id'] ?></td>
                                                 <td><?php echo $row['user_email'] ?></td>
                                                 <td><?php echo $row['order_time'] ?></td>
-                                                <td><?php echo $row['revenue'] ?></td>
+                                                <td><?php echo $row['price'] ?></td>
                                                 </tr>
                                             <?php } ?>
                                             </tbody>

@@ -48,7 +48,7 @@
         </a>
 
         <span class="stext-109 cl4">
-            Checkout
+            Checkout    
         </span>
     </div>
 </div>
@@ -58,9 +58,9 @@
 <!--Form begin-->
 <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
     <input type="hidden" name="merchant_id" value="1218734">
-    <input type="hidden" name="return_url" value="http://localhost:63342/microtech-website/pay_success.php">
+    <input type="hidden" name="return_url" value="http://localhost/microtech-website/pay_success.php">
     <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
-    <input type="hidden" name="notify_url" value="http://localhost:63342/microtech-website/payment_notify.php">
+    <input type="hidden" name="notify_url" value="http://localhost/microtech-website/payment_notify.php">
 
 
 
