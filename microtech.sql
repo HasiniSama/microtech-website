@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 29, 2021 at 05:57 PM
+-- Generation Time: Sep 29, 2021 at 06:04 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -83,8 +83,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`usermail`, `itemid`, `no_of_items`) VALUES
-('', '50', 2),
-('hasinisama99@gmail.com', '01', 1);
+('', '50', 2);
 
 -- --------------------------------------------------------
 
@@ -178,12 +177,12 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`order_id`, `item_id`, `no_of_items`) VALUES
-('001', '01', 1),
-('002', '03', 1),
-('003', '04', 1),
-('004', '07', 2),
-('005', '06', 1),
-('006', '05', 1),
+('1', '01', 1),
+('2', '03', 1),
+('3', '04', 1),
+('4', '07', 2),
+('5', '06', 1),
+('6', '05', 1),
 ('7', '01', 1);
 
 -- --------------------------------------------------------
@@ -204,12 +203,13 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_email`, `price`, `order_time`) VALUES
-('001', 'hasinisama99@gmail.com', 174990, '2021-09-28 17:41:43'),
-('002', 'hasinisama99@gmail.com', 52199, '2021-09-28 17:41:43'),
-('003', 'hasinisama99@gmail.com', 74999, '2021-09-28 17:41:43'),
-('004', 'hasinisama99@gmail.com', 14380, '2021-09-28 17:41:43'),
-('005', 'hasinisama99@gmail.com', 275999, '2021-09-28 20:57:46'),
-('006', 'hasinisama99@gmail.com', 255000, '2021-09-28 20:57:46');
+('1', 'hasinisama99@gmail.com', 174990, '2021-09-29 16:01:49'),
+('2', 'hasinisama99@gmail.com', 52199, '2021-09-29 16:01:57'),
+('3', 'hasinisama99@gmail.com', 74999, '2021-09-29 16:02:03'),
+('4', 'hasinisama99@gmail.com', 14380, '2021-09-29 16:02:18'),
+('5', 'hasinisama99@gmail.com', 275999, '2021-09-29 16:02:31'),
+('6', 'hasinisama99@gmail.com', 255000, '2021-09-29 16:02:36'),
+('7', 'hasinisama99@gmail.com', 174990, '2021-09-29 16:00:16');
 
 -- --------------------------------------------------------
 
