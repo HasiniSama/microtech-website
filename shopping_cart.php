@@ -129,17 +129,19 @@ $_SESSION['total'] = 0;
                                         </div>
                                     </td>
                                     <td>
-                                        <?php echo $row['no_of_items'];?>
+                                        <h5 class="p-l-60"><?php echo $row['no_of_items'];?></h5>
                                     </td>
 
                                     <td class="cart__price">
-                                        <?php echo "LKR. ".$row['item_price']*$row['no_of_items'];?>
+                                        <h5><?php echo "LKR. ".$row['item_price']*$row['no_of_items']."/-";?></h5>
                                     </td>
                                     <td>
                                         <form id="form" name="form" method="post" action="<?php $_SERVER['PHP_SELF'];?>">
                                             <input type="hidden" name="itemId" id="itemId" value="<?php echo $row['itemid']; ?>">
                                             <input type="hidden" name="qty" id="qty" value="<?php echo $row['no_of_items']; ?>">
-                                            <input type="submit" name="submit" id="submit" value="Remove">
+                                            <button type="submit" name="submit" id="submit" class="btn btn-close m-l-32 m-b-8">
+                                            
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
@@ -154,12 +156,12 @@ $_SESSION['total'] = 0;
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn">
-                            <a href="#">Continue Shopping</a>
+                            <a href="shopping_page.php">Continue Shopping</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                            <a href="#"><i class="fa fa-spinner"></i> Clear cart</a>
                         </div>
                     </div>
                 </div>

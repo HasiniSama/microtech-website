@@ -1,6 +1,9 @@
 <?php
 include "db_conn.php";
 
+$category = "";
+$brand = "";
+
 //get search results
 if(isset($_POST['searchSubmit'])) {
     $valueToSearch = $_POST['valueToSearch'];

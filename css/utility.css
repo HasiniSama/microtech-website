@@ -187,6 +187,7 @@
 .p-l-22{padding-left: 22px;}
 .p-l-25{padding-left: 25px;}
 .p-l-50{padding-left: 50px;}
+.p-l-60{padding-left: 60px;}
 .p-l-130{padding-left: 130px;}
 
 .p-r-11{padding-right: 11px;}
@@ -239,6 +240,9 @@
     margin-top: 5px;
 }
 
+.m-b-8{margin-bottom: 8px;}
+
+.m-r-6{margin-right: 6px;}
 .m-r-10{margin-right: 10px;}
 .m-r-32{margin-right: 32px;}
 

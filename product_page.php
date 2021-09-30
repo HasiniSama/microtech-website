@@ -44,6 +44,7 @@ if(isset($_REQUEST['submit']) && isset($_SESSION['email'])){
         $sqlQuery5 = "UPDATE stock SET no_of_items = " . $new_no_of_items . " WHERE item_id = " . $productId;
         $result5 = $conn->query($sqlQuery5);
     }
+
 } // redirect user to sign in
 else if(isset($_REQUEST['submit'])){
     header("Location: signin_page.php?error=Please sign in to proceed!");
@@ -70,7 +71,7 @@ $no_of_items = $stockItem['no_of_items'];
 	<link rel="stylesheet" type="text/css" href="css/shopping_page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-
+    
 </head>
 <body>
     <!-- Header -->
@@ -161,7 +162,7 @@ $no_of_items = $stockItem['no_of_items'];
                                                 </div>
                                             </div>
 
-                                            <button class="btn-add-cart js-addcart-detail" name="submit" id="submit">
+                                            <button class="btn-add-cart add-to-cart-alert" name="submit" id="submit">
                                                 Add to cart
                                             </button>
                                         </form>
@@ -178,7 +179,7 @@ $no_of_items = $stockItem['no_of_items'];
                                                 </div>
                                             </div>
 
-                                            <button class="btn-out-cart js-addcart-detail">
+                                            <button class="btn-out-cart add-to-cart-alert">
                                                 Add to cart
                                             </button>
                                     <?php } ?>
@@ -365,16 +366,27 @@ $no_of_items = $stockItem['no_of_items'];
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/bfc2cbc6c6.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script>
-		$('.js-addcart-detail').each(function(){
-			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
-			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
-			});
-		});
-	</script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script> 
+        $('.add-to-cart-alert').click(function(e){
+            var form = $(this).parents('#form');
+            e.preventDefault();
+            swal({
+                title: "<?php //echo $product['item_name'] ?>",
+                text: "Successfully added to cart!",
+                type: "success",
+                showCancelButton: true,
+                confirmButtonColor: '#717fe0',
+                closeOnConfirm: false,
+                closeOnCancel: false,
+                html: false
+            }).then(function (1) {
+                if (isConfirm) {
+                    form.submit(); // <--- submit form programmatically
+                }
+            });
+        });
+    </script>-->
     <script src="js/product.js"></script>
     <script src="js/app.js"></script>	
 
